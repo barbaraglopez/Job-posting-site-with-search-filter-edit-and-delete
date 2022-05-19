@@ -64,4 +64,33 @@
   }
 }
 
+.navbar {
+  background-color: #05A8AA;
+  width: 100vw;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+.navbar .navbar__a {
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0px 20px;
+  color: #C65B7C;
+  -webkit-text-stroke: 0.7px #BC412B;
+  background-color: #05A8AA;
+}
+.navbar .navbar__a:hover {
+  color: #B8D5B8;
+  -webkit-text-stroke: 0.7px black;
+}
+@media only screen and (max-width: 590px) {
+  .navbar .navbar__a {
+    font-size: 15px;
+  }
+}
+
 /*# sourceMappingURL=styles.css.map */
