@@ -1,0 +1,33 @@
+.main{
+    @include center($direction:row, $alingment:center, $justify:center);
+    flex-wrap: wrap;
+
+    .card{
+        @include center($direction:row, $alingment:center, $justify:center);
+        width: 250px;
+        height: 250px;
+        background-color: $backgroundColor;
+        margin: 25px;
+
+        .card-body{
+            @include center($direction:column, $alingment:center, $justify:center);
+            width: 90%;
+            background-color: $backgroundColor;
+            width: 100%;
+            height: 70%;
+
+            .card-title{
+                background-color: $backgroundColor;
+            }
+
+            .card-description{
+                background-color: $backgroundColor;
+                overflow: hidden;
+            }
+
+            .card-location{
+                background-color: $backgroundColor;
+            }
+        }
+    }
+}
