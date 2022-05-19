@@ -1,0 +1,39 @@
+.footer{
+    @include center($direction:row, $alingment:center, $justify:center);
+    position: absolute;
+    bottom: 0;
+    background-color: $pink;
+    width: 100vw;
+    height: 3.5em;
+    color: $backgroundColor;
+    font-weight: bold;
+    font-size: 17px;
+    -webkit-text-stroke: 0.7px black;
+
+    img{
+        height: 1.5rem;
+        background-color:$pink;
+        margin: 5px;
+    }
+
+}
+
+@media only screen and (max-width: 590px) {
+    .footer{
+        font-size: 15px;
+
+        img{
+            height: 0.7rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 315px) {
+    .footer{
+        font-size: 8px;
+
+        img{
+            height: 0.7rem;
+        }
+    }
+}

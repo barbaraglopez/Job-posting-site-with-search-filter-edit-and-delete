@@ -141,7 +141,7 @@
   background-color: #C65B7C;
   color: white;
 }
-@media only screen and (max-width: 540px) {
+@media only screen and (max-width: 590px) {
   .formContainer .form {
     margin: 0px;
   }
@@ -163,6 +163,43 @@
     justify-content: flex-start;
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+.footer {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  background-color: #C65B7C;
+  width: 100vw;
+  height: 3.5em;
+  color: #05A8AA;
+  font-weight: bold;
+  font-size: 17px;
+  -webkit-text-stroke: 0.7px black;
+}
+.footer img {
+  height: 1.5rem;
+  background-color: #C65B7C;
+  margin: 5px;
+}
+
+@media only screen and (max-width: 590px) {
+  .footer {
+    font-size: 15px;
+  }
+  .footer img {
+    height: 0.7rem;
+  }
+}
+@media only screen and (max-width: 315px) {
+  .footer {
+    font-size: 8px;
+  }
+  .footer img {
+    height: 0.7rem;
   }
 }
 
