@@ -3,11 +3,12 @@
     flex-wrap: wrap;
 
     .card{
-        @include center($direction:row, $alingment:center, $justify:center);
+        @include center($direction:column, $alingment:center, $justify:center);
         width: 250px;
         height: 250px;
         background-color: $backgroundColor;
         margin: 25px;
+        border-radius: 15px;
 
         .card-body{
             @include center($direction:column, $alingment:center, $justify:center);
@@ -15,6 +16,7 @@
             background-color: $backgroundColor;
             width: 100%;
             height: 70%;
+            margin:20px;
 
             .card-title{
                 background-color: $backgroundColor;
