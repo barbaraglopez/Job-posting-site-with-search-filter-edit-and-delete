@@ -69,8 +69,46 @@
 }
 
 .detailCard {
-  width: 500px;
-  height: 500px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  height: 400px;
+  background-color: #D7B49E;
+  border-radius: 15px;
+  margin-top: 100px;
+  padding: 15px;
+  border: 2px solid #05A8AA;
+}
+.detailCard .imgCardDetails {
+  width: 50%;
+  height: 45%;
+  background-color: #D7B49E;
+}
+.detailCard .card-body {
+  background-color: #D7B49E;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.detailCard .card-body .card-title {
+  font-size: 23px;
+  color: #05A8AA;
+  -webkit-text-stroke: 0.8px black;
+  padding: 5px;
+  background-color: #D7B49E;
+}
+.detailCard .card-body .card-description, .detailCard .card-body .card-category, .detailCard .card-body .card-seniority, .detailCard .card-body .card-location {
+  font-size: 15px;
+  background-color: #D7B49E;
+}
+.detailCard .card-body .card-description b, .detailCard .card-body .card-category b, .detailCard .card-body .card-seniority b, .detailCard .card-body .card-location b {
+  background-color: #D7B49E;
+}
+.detailCard .btn-container-DeletandEdit {
+  background-color: #D7B49E;
 }
 
 .spinner {
@@ -255,7 +293,7 @@
   color: #BC412B;
   font-size: 19px;
 }
-.main .main__cardsContainer .card .card-body .card-description {
+.main .main__cardsContainer .card .card-body .card-description, .main .main__cardsContainer .card .detailCard .card-body .card-location, .detailCard .main .main__cardsContainer .card .card-body .card-location, .main .main__cardsContainer .card .detailCard .card-body .card-seniority, .detailCard .main .main__cardsContainer .card .card-body .card-seniority, .main .main__cardsContainer .card .detailCard .card-body .card-category, .detailCard .main .main__cardsContainer .card .card-body .card-category {
   background-color: #D7B49E;
   overflow: hidden;
 }
@@ -297,20 +335,6 @@
   cursor: pointer;
   border: 1px solid rgb(134, 7, 202);
 }
-.main .buttonContainer .main__prevButton, .main .buttonContainer .main__nextButton {
-  padding: 5px;
-  width: 70px;
-  background-color: #698996;
-  border: 1px solid #698996;
-  border-radius: 6px;
-  margin: 2px;
-  color: white;
-  font-size: 15px;
-}
-.main .buttonContainer .main__prevButton:hover, .main .buttonContainer .main__nextButton:hover {
-  background-color: #C65B7C;
-  cursor: pointer;
-}
 
 .footer {
   display: flex;
@@ -348,6 +372,21 @@
   .footer img {
     height: 0.7rem;
   }
+}
+.main__prevButton, .editJobs, .deleteJobs, .main__nextButton {
+  padding: 5px;
+  width: 70px;
+  background-color: #698996;
+  border: 1px solid #698996;
+  border-radius: 6px;
+  margin: 2px;
+  color: white;
+  font-size: 15px;
+}
+
+.main__prevButton:hover, .main__nextButton:hover, .deleteJobs:hover, .editJobs:hover {
+  background-color: #C65B7C;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=styles.css.map */

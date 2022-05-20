@@ -35,21 +35,22 @@ const renderDetails = (jobs) => { // renderiza todos los productos que reciba
     const {name, description, location, category, seniority} = jobs
     queryId("spinner").classList.remove('hidden')
     setTimeout(()=>{
+        queryId("buttonContainer-next-prev").innerHTML=""
         queryId("spinner").classList.add('hidden')
         queryId("cardsContainer").innerHTML = `
         <div class="detailCard">
-            <img src=""alt="${name}">
+            <img class="imgCardDetails" src="./img/job.png"alt="${name}">
             <div class="card-body">
                 <h5 class="card-title">${name}</h5>
-                <p class="card-text"> Location:${location}</p>
-                <p class="card-description">Job's description:${description}</p>
-                <span class="card-category">${category}</span>
-                <span class="card-seniority"">${seniority}</span>
+                <p class="card-description"><b>Job's description: </b>${description}</p>
+                <p class="card-location"><b>Location: </b>${location}</p>
+                <p class="card-category"><b> Category: </b>${category}</p>
+                <p class="card-seniority"><b> Seniority: </b>${seniority}</p>
             </div>
-            <div>
-            <button>Delete Job</button>
-            <button>Edit Job</button>
-            <div>
+            <div class="btn-container-DeletandEdit">
+                <button class="deleteJobs">Delete</button>
+                <button class="editJobs">Edit</button>
+            </div>
         </div>         
     `
     },2000)

@@ -1,0 +1,26 @@
+.main__prevButton{
+    padding: 5px;
+    width: 70px;
+    background-color: $almostBlue;
+    border: 1px solid $almostBlue;
+    border-radius: 6px;
+    margin: 2px;
+    color: $letterFont;
+    font-size: 15px;
+}
+
+.main__nextButton{
+    @extend.main__prevButton;
+}
+
+.deleteJobs{
+    @extend.main__prevButton;
+}
+
+.editJobs{
+    @extend.main__prevButton;
+}
+.main__prevButton:hover{
+    background-color: $pink;
+    cursor: pointer;
+}
