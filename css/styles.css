@@ -147,6 +147,22 @@
     transform: rotate(360deg);
   }
 }
+.alertDelete {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  width: 90%;
+  height: 5em;
+  background-color: white;
+  padding: 1em;
+  border-radius: 5px;
+  border: 2px solid red;
+  color: red;
+  font-size: 15px;
+  margin: 3em;
+}
+
 .navbar {
   background-color: #05A8AA;
   width: 100vw;
@@ -373,7 +389,7 @@
     height: 0.7rem;
   }
 }
-.main__prevButton, .editJobs, .deleteJobs, .main__nextButton {
+.main__prevButton, .backToInto, .remove, .editJobs, .deleteJobs, .main__nextButton {
   padding: 5px;
   width: 70px;
   background-color: #698996;
@@ -384,9 +400,31 @@
   font-size: 15px;
 }
 
-.main__prevButton:hover, .main__nextButton:hover, .deleteJobs:hover, .editJobs:hover {
+.main__prevButton:hover, .backToInto:hover, .remove:hover, .main__nextButton:hover, .deleteJobs:hover, .editJobs:hover {
   background-color: #C65B7C;
   cursor: pointer;
+}
+
+.remove {
+  background-color: red;
+  margin: 5px;
+}
+
+.remove:hover {
+  background-color: black;
+}
+
+.backToInto {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: none;
+  background-color: rgb(0, 179, 0);
+}
+
+.backToInto:hover {
+  background-color: black;
 }
 
 /*# sourceMappingURL=styles.css.map */

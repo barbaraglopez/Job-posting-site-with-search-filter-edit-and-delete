@@ -1,0 +1,13 @@
+.alertDelete{
+    @include center($direction:row, $alingment:center, $justify:center);
+    width: 90%;
+    height: 5em;
+    background-color: white;
+    padding: 1em;
+    border-radius: 5px;
+    border: 2px solid red;
+    color: red;
+    font-size: 15px;
+    margin: 3em;
+
+}

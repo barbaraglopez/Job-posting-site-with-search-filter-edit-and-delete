@@ -28,7 +28,7 @@ const jobsDetail = (id) => {
         .catch(err => console.log(err))
 }
 
-const deleteData = (id) => {
+const deleteJob = (id) => {
     fetch(`${url_base}${endpoint}/${id}`, {
         method: "DELETE",
     })
@@ -62,7 +62,7 @@ const renderDetails = (jobs) => { // renderiza todos los productos que reciba
                 <p class="card-seniority"><b> Seniority: </b>${seniority}</p>
             </div>
             <div class="btn-container-DeletandEdit">
-                <button class="deleteJobs" id="button--DeleteJob" onclick="deleteAlert(${id})">Delete</button>
+                <button class="deleteJobs" id="button--DeleteJob" onclick="deleteSing(${id})">Delete</button>
                 <button class="editJobs" id="button--DeleteJob" onclick="editJobJob(${id})">Edit</button>
             </div>
         </div>         
@@ -91,13 +91,13 @@ const renderJobs = (data) => { // renderiza todos los productos que reciba
 }
 
 //FUNCIONALIDAD DELETE JOB AND EDIT JOB
-const deleteAlert = (id) => {
+const deleteSing = (id) => {
     queryId("cardsContainer").innerHTML =""
     queryId("cardsContainer").innerHTML = `
-    <div class="carteEliminar">
-        Estas seguro que queres eliminar este elemento?
-        <button class="eliminar" onclick="deleteData(${id})">Eliminar</button>
-        <a href="index.html" class="volver">Volver</a>
+    <div class="alertDelete">
+        Are you sure you want to delete this item?
+        <button class="remove" onclick="deleteJob(${id})">Remove</button>
+        <a href="index.html" class="backToInto" >Back</a>
     </div>
 `
 }

@@ -24,3 +24,24 @@
     background-color: $pink;
     cursor: pointer;
 }
+
+.remove{
+    @extend.main__prevButton;
+    background-color: red;
+    margin: 5px;
+}
+
+.remove:hover{
+    background-color: black;
+}
+
+.backToInto{
+    @include center($direction:row, $alingment:center, $justify:center);
+    @extend.main__prevButton;
+    text-decoration: $linkSinLinea;
+    background-color: rgb(0, 179, 0);
+}
+
+.backToInto:hover{
+    background-color: black;
+}
