@@ -28,13 +28,28 @@ const jobsDetail = (id) => {
         .catch(err => console.log(err))
 }
 
+const deleteData = (id) => {
+    fetch(`${url_base}${endpoint}/${id}`, {
+        method: "DELETE",
+    })
+    .finally(() => {
+        queryId("cardsContainer").innerHTML =""
+        queryId("spinner").classList.remove('hidden')
+        setTimeout(()=>{
+            getData(page)
+            queryId("spinner").classList.add('hidden')
+            queryId("buttonContainer-next-prev").classList.remove("hidden")
+        },2000)
+    })
+}
 
+//RENDERS
 const renderDetails = (jobs) => { // renderiza todos los productos que reciba
     queryId("cardsContainer").innerHTML = "" // limpio primero mi contenedor, para renderizar luego, eso se hace constantemente en el proyecto
     const {name, description, location, category, seniority, id} = jobs
     queryId("spinner").classList.remove('hidden')
     setTimeout(()=>{
-        queryId("buttonContainer-next-prev").innerHTML=""
+        queryId("buttonContainer-next-prev").classList.add("hidden")
         queryId("spinner").classList.add('hidden')
         queryId("cardsContainer").innerHTML = `
         <div class="detailCard">
@@ -47,20 +62,13 @@ const renderDetails = (jobs) => { // renderiza todos los productos que reciba
                 <p class="card-seniority"><b> Seniority: </b>${seniority}</p>
             </div>
             <div class="btn-container-DeletandEdit">
-                <button class="deleteJobs" id="button--DeleteJob" onclick="deleteJob(${"id"})">Delete</button>
-                <button class="editJobs" id="button--DeleteJob" onclick="editJobJob(${"id"})">Edit</button>
+                <button class="deleteJobs" id="button--DeleteJob" onclick="deleteAlert(${id})">Delete</button>
+                <button class="editJobs" id="button--DeleteJob" onclick="editJobJob(${id})">Edit</button>
             </div>
         </div>         
     `
     },2000)
 }
-
-const deleteJob =()=>{
-
-}
-
-
-/* getData(page) */
 
 const renderJobs = (data) => { // renderiza todos los productos que reciba
     for(const {name, description, location, category, id, seniority} of data){
@@ -83,7 +91,16 @@ const renderJobs = (data) => { // renderiza todos los productos que reciba
 }
 
 //FUNCIONALIDAD DELETE JOB AND EDIT JOB
-
+const deleteAlert = (id) => {
+    queryId("cardsContainer").innerHTML =""
+    queryId("cardsContainer").innerHTML = `
+    <div class="carteEliminar">
+        Estas seguro que queres eliminar este elemento?
+        <button class="eliminar" onclick="deleteData(${id})">Eliminar</button>
+        <a href="index.html" class="volver">Volver</a>
+    </div>
+`
+}
 
 //FUNCIONALIDADES EN BOTONES DE PREV Y NEXT
 queryId("buttonNext").addEventListener('click',()=>{
