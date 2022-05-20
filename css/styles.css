@@ -15,7 +15,7 @@
   flex-direction: row;
   align-items: center;
   background-color: #BC412B;
-  height: 13em;
+  height: 9em;
   width: 100vw;
 }
 .header .header__imgContainer {
@@ -26,8 +26,8 @@
   background-color: #BC412B;
 }
 .header .header__imgContainer .header__imgContainer--imgJob, .header .header__imgContainer .header__imgContainer__img {
-  width: 12em;
-  height: 12em;
+  width: 10em;
+  height: 7em;
   text-align: center;
   background-color: #BC412B;
 }
@@ -113,6 +113,7 @@
   background-color: #C65B7C;
   border-style: none;
   border: 1px solid #05A8AA;
+  color: white;
 }
 .formContainer .form .form__select option {
   background-color: #C65B7C;
@@ -130,6 +131,7 @@
   border-radius: 5px;
   padding: 5px;
   background-color: #698996;
+  color: white;
 }
 @media only screen and (max-width: 550px) {
   .formContainer .form .form__btn {
@@ -138,7 +140,7 @@
 }
 .formContainer .form .form__btn:hover {
   cursor: pointer;
-  background-color: #C65B7C;
+  background-color: #05A8AA;
   color: white;
 }
 @media only screen and (max-width: 590px) {
@@ -168,11 +170,18 @@
 .main {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.main .main__cardsContainer {
+  display: flex;
+  justify-content: center;
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
 }
-.main .card {
+.main .main__cardsContainer .card {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -184,7 +193,7 @@
   border-radius: 15px;
   border: 1px solid #C65B7C;
 }
-.main .card .card-body {
+.main .main__cardsContainer .card .card-body {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -194,40 +203,66 @@
   height: 70%;
   background-color: #D7B49E;
 }
-.main .card .card-body .card-title {
+.main .main__cardsContainer .card .card-body .card-title {
   background-color: #D7B49E;
   color: #BC412B;
   font-size: 19px;
 }
-.main .card .card-body .card-description {
+.main .main__cardsContainer .card .card-body .card-description {
   background-color: #D7B49E;
   overflow: hidden;
 }
-.main .card .card-body .card-category {
+.main .main__cardsContainer .card .card-body .card-category {
   background-color: #D7B49E;
   font-size: 12px;
   border-radius: 2px;
 }
-.main .card .card-body .card-location {
+.main .main__cardsContainer .card .card-body .card-location {
   background-color: #D7B49E;
 }
-.main .card .card-body .card-seniority {
+.main .main__cardsContainer .card .card-body .card-location b {
+  background-color: #D7B49E;
+}
+.main .main__cardsContainer .card .card-body .card-seniority {
   background-color: #D7B49E;
   font-size: 12px;
   border-radius: 2px;
 }
-.main .card .card-body .card-cat-sen {
+.main .main__cardsContainer .card .card-body .card-cat-sen {
   display: flex;
 }
-.main .card .card-body .card-cat-sen .span {
+.main .main__cardsContainer .card .card-body .card-cat-sen .span {
   background-color: #C65B7C;
   padding: 3px;
   margin: 1px;
+  color: white;
 }
-.main .card .btnSeeDet {
+.main .main__cardsContainer .card .btnSeeDet {
   padding: 5px;
   background-color: #05A8AA;
+  border: 1px solid #05A8AA;
   border-radius: 5px;
+  color: white;
+  font-weight: bold;
+}
+.main .main__cardsContainer .card .btnSeeDet:hover {
+  background-color: #698996;
+  cursor: pointer;
+  border: 1px solid rgb(134, 7, 202);
+}
+.main .buttonContainer .main__prevButton, .main .buttonContainer .main__nextButton {
+  padding: 5px;
+  width: 70px;
+  background-color: #698996;
+  border: 1px solid #698996;
+  border-radius: 6px;
+  margin: 2px;
+  color: white;
+  font-size: 15px;
+}
+.main .buttonContainer .main__prevButton:hover, .main .buttonContainer .main__nextButton:hover {
+  background-color: #C65B7C;
+  cursor: pointer;
 }
 
 .footer {

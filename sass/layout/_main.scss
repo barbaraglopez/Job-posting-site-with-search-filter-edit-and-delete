@@ -1,66 +1,106 @@
 .main{
-    @include center($direction:row, $alingment:center, $justify:center);
+    @include center($direction:column, $alingment:center, $justify:center);
     flex-wrap: wrap;
 
-    .card{
-        @include center($direction:column, $alingment:center, $justify:center);
-        width: 25%;
-        height: 250px;
-        background-color: #D7B49E;
-        margin: 25px;
-        border-radius: 15px;
-        border: 1px solid $pink;
-
-        .card-body{
+    .main__cardsContainer{
+        @include center($direction:row, $alingment:center, $justify:center);
+        flex-wrap: wrap;
+        
+        .card{
             @include center($direction:column, $alingment:center, $justify:center);
-            text-align: center;
-            width: 80%;
-            height: 70%;
-            background-color: #D7B49E;
+            width: 25%;
+            height: 250px;
+            background-color: $salmon;
+            margin: 25px;
+            border-radius: 15px;
+            border: 1px solid $pink;
 
-            .card-title{
-                background-color: #D7B49E;
-                color: $bannerColor;
-                font-size: 19px;
+            .card-body{
+                @include center($direction:column, $alingment:center, $justify:center);
+                text-align: center;
+                width: 80%;
+                height: 70%;
+                background-color: $salmon;
+
+                .card-title{
+                    background-color: $salmon;
+                    color: $bannerColor;
+                    font-size: 19px;
+                }
+
+                .card-description{
+                    background-color: $salmon;
+                    overflow: hidden;
+                }
+
+                .card-category{
+                    background-color: $salmon;
+                    font-size: 12px;
+                    border-radius: 2px;
+                }
+
+                .card-location{
+                    background-color: $salmon;
+                        b{
+                            background-color: $salmon;
+                        }
+                }
+
+                .card-seniority{
+                    background-color: $salmon;
+                    font-size: 12px;
+                    border-radius: 2px;
+                }
+
+                .card-cat-sen{
+                    display: flex;
+
+                    
+                .span{
+                    background-color: $pink;
+                    padding: 3px;
+                    margin: 1px;
+                    color:$letterFont;
+                }
             }
-
-            .card-description{
-                background-color: #D7B49E;
-                overflow: hidden;
-            }
-
-            .card-category{
-                background-color: #D7B49E;
-                font-size: 12px;
-                border-radius: 2px;
-            }
-
-            .card-location{
-                background-color: #D7B49E;
-            }
-
-            .card-seniority{
-                background-color:#D7B49E;
-                font-size: 12px;
-                border-radius: 2px;
-            }
-
-            .card-cat-sen{
-                display: flex;
-
-                
-            .span{
-                background-color: $pink;
-                padding: 3px;
-                margin: 1px;
-            }
-        }
         }
         
-        .btnSeeDet{
+            .btnSeeDet{
+                padding: 5px;
+                background-color: $navbarBackground;
+                border: 1px solid $navbarBackground;
+                border-radius: 5px;
+                color:$letterFont;
+                font-weight: bold;
+            }
+
+            .btnSeeDet:hover{
+                background-color:$almostBlue;
+                cursor:pointer;
+                border: 1px solid rgb(134, 7, 202);
+            }
+        }
+    }
+
+    .buttonContainer{
+        .main__prevButton{
             padding: 5px;
-            background-color: $navbarBackground;
-            border-radius: 5px;
+            width: 70px;
+            background-color: $almostBlue;
+            border: 1px solid $almostBlue;
+            border-radius: 6px;
+            margin: 2px;
+            color: $letterFont;
+            font-size: 15px;
+        }
+
+        .main__nextButton{
+            @extend.main__prevButton;
+        }
+
+        .main__prevButton:hover{
+            background-color: $pink;
+            cursor: pointer;
         }
     }
 }

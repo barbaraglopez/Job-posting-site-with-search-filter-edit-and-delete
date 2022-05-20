@@ -1,15 +1,15 @@
 .header{
     @include center($direction:row, $alingment:center, $justify:space-around);
     background-color:$bannerColor;
-    height: 13em;
+    height: 9em;
     width: 100vw;
 
     .header__imgContainer{
         @include center($direction:column, $alingment:center, $justify:space-around);
         background-color: $bannerColor;
         .header__imgContainer--imgJob{
-            width: 12em;
-            height:12em;
+            width: 10em;
+            height:7em;
             text-align: center;
             background-color: $bannerColor;
         }

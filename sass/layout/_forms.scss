@@ -11,6 +11,7 @@
             background-color: $pink;
             border-style: $linkSinLinea;
             border: 1px solid $navbarBackground;
+            color: $letterFont;
 
             option{
                 background-color: $pink;
@@ -29,7 +30,8 @@
             margin: 7px;
             border-radius: 5px;
             padding: 5px;
-            background-color: #698996;
+            background-color:$almostBlue;
+            color: $letterFont;
 
             @media only screen and (max-width: 550px) {
                 margin: 2px;
@@ -38,8 +40,8 @@
 
         .form__btn:hover{
             cursor: pointer;
-            background-color: $pink;
-            color: white;
+            background-color: $navbarBackground;
+            color: $letterFont;
         }
     }
 
