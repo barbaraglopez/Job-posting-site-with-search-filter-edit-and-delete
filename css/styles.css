@@ -9,6 +9,10 @@
   background-color: #B8D5B8;
 }
 
+.hidden {
+  display: none;
+}
+
 .header {
   display: flex;
   justify-content: space-around;
@@ -64,6 +68,47 @@
   }
 }
 
+.detailCard {
+  width: 500px;
+  height: 500px;
+}
+
+.spinner {
+  position: relative;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  margin: 50px;
+}
+
+.spinner::before,
+.spinner:after {
+  content: "";
+  position: absolute;
+  border-radius: inherit;
+}
+
+.spinner::before {
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(0deg, #C65B7C 0%, #05A8AA 100%);
+  animation: spin 0.5s infinite linear;
+}
+
+.spinner:after {
+  width: 85%;
+  height: 85%;
+  background-color: #B8D5B8;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 .navbar {
   background-color: #05A8AA;
   width: 100vw;
@@ -132,6 +177,7 @@
   padding: 5px;
   background-color: #698996;
   color: white;
+  border: 2px solid #698996;
 }
 @media only screen and (max-width: 550px) {
   .formContainer .form .form__btn {
@@ -142,6 +188,7 @@
   cursor: pointer;
   background-color: #05A8AA;
   color: white;
+  border: 2px solid #05A8AA;
 }
 @media only screen and (max-width: 590px) {
   .formContainer .form {
