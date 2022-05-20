@@ -4,32 +4,63 @@
 
     .card{
         @include center($direction:column, $alingment:center, $justify:center);
-        width: 250px;
+        width: 25%;
         height: 250px;
-        background-color: $backgroundColor;
+        background-color: #D7B49E;
         margin: 25px;
         border-radius: 15px;
+        border: 1px solid $pink;
 
         .card-body{
             @include center($direction:column, $alingment:center, $justify:center);
-            width: 90%;
-            background-color: $backgroundColor;
-            width: 100%;
+            text-align: center;
+            width: 80%;
             height: 70%;
-            margin:20px;
+            background-color: #D7B49E;
 
             .card-title{
-                background-color: $backgroundColor;
+                background-color: #D7B49E;
+                color: $bannerColor;
+                font-size: 19px;
             }
 
             .card-description{
-                background-color: $backgroundColor;
+                background-color: #D7B49E;
                 overflow: hidden;
             }
 
-            .card-location{
-                background-color: $backgroundColor;
+            .card-category{
+                background-color: #D7B49E;
+                font-size: 12px;
+                border-radius: 2px;
             }
+
+            .card-location{
+                background-color: #D7B49E;
+            }
+
+            .card-seniority{
+                background-color:#D7B49E;
+                font-size: 12px;
+                border-radius: 2px;
+            }
+
+            .card-cat-sen{
+                display: flex;
+
+                
+            .span{
+                background-color: $pink;
+                padding: 3px;
+                margin: 1px;
+            }
+        }
+        }
+        
+        .btnSeeDet{
+            padding: 5px;
+            background-color: $navbarBackground;
+            border-radius: 5px;
         }
     }
 }

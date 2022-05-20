@@ -1,7 +1,7 @@
 .header{
     @include center($direction:row, $alingment:center, $justify:space-around);
     background-color:$bannerColor;
-    height: 14em;
+    height: 13em;
     width: 100vw;
 
     .header__imgContainer{

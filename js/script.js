@@ -26,10 +26,12 @@ const renderJobs = (data) => { // renderiza todos los productos que reciba
                 <h5 class="card-title">${name}</h5>
                 <p class="card-description">${description}</p>
                 <p class="card-location">Location: ${location}</p>
-                <span class="card-category">${category}</span>
-                <span class="card-seniority">${seniority}</span>
+                    <div class="card-cat-sen">
+                        <p class="card-category span">${category}</p>
+                        <p class="card-seniority span">${seniority}</p>
+                    </div>
             </div>
-            <button class="btn" onclick="productDetail(${id})">See Details</button>
+            <button class="btnSeeDet" onclick="productDetail(${id})">See Details</button>
         </div>         
     `
     }

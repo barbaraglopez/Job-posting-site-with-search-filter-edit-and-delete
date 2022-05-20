@@ -15,7 +15,7 @@
   flex-direction: row;
   align-items: center;
   background-color: #BC412B;
-  height: 14em;
+  height: 13em;
   width: 100vw;
 }
 .header .header__imgContainer {
@@ -110,12 +110,12 @@
 .formContainer .form .form__select {
   margin: 10px;
   padding: 5px;
-  background-color: #D7B49E;
+  background-color: #C65B7C;
   border-style: none;
   border: 1px solid #05A8AA;
 }
 .formContainer .form .form__select option {
-  background-color: #D7B49E;
+  background-color: #C65B7C;
 }
 .formContainer .form .form__select:hover {
   border: 1px solid #BC412B;
@@ -177,32 +177,57 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  width: 250px;
+  width: 25%;
   height: 250px;
-  background-color: #05A8AA;
+  background-color: #D7B49E;
   margin: 25px;
   border-radius: 15px;
+  border: 1px solid #C65B7C;
 }
 .main .card .card-body {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  width: 90%;
-  background-color: #05A8AA;
-  width: 100%;
+  text-align: center;
+  width: 80%;
   height: 70%;
-  margin: 20px;
+  background-color: #D7B49E;
 }
 .main .card .card-body .card-title {
-  background-color: #05A8AA;
+  background-color: #D7B49E;
+  color: #BC412B;
+  font-size: 19px;
 }
 .main .card .card-body .card-description {
-  background-color: #05A8AA;
+  background-color: #D7B49E;
   overflow: hidden;
 }
+.main .card .card-body .card-category {
+  background-color: #D7B49E;
+  font-size: 12px;
+  border-radius: 2px;
+}
 .main .card .card-body .card-location {
+  background-color: #D7B49E;
+}
+.main .card .card-body .card-seniority {
+  background-color: #D7B49E;
+  font-size: 12px;
+  border-radius: 2px;
+}
+.main .card .card-body .card-cat-sen {
+  display: flex;
+}
+.main .card .card-body .card-cat-sen .span {
+  background-color: #C65B7C;
+  padding: 3px;
+  margin: 1px;
+}
+.main .card .btnSeeDet {
+  padding: 5px;
   background-color: #05A8AA;
+  border-radius: 5px;
 }
 
 .footer {
@@ -214,7 +239,7 @@
   bottom: 0;
   background-color: #C65B7C;
   width: 100vw;
-  height: 3.5em;
+  height: 2.8em;
   color: #05A8AA;
   font-weight: bold;
   font-size: 17px;

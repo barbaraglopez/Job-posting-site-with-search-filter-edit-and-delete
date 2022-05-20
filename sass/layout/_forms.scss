@@ -8,12 +8,12 @@
         .form__select{
             margin: 10px;
             padding: 5px;
-            background-color: #D7B49E;
+            background-color: $pink;
             border-style: $linkSinLinea;
             border: 1px solid $navbarBackground;
 
             option{
-                background-color: #D7B49E;
+                background-color: $pink;
             }
         }
 
