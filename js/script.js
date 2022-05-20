@@ -14,7 +14,6 @@ const getData = (page) => {
         } */
         .catch(err => console.log(err))
 }
-
 setTimeout(()=>{
     getData(page)
     queryId("spinner").classList.add('hidden')
@@ -32,7 +31,7 @@ const jobsDetail = (id) => {
 
 const renderDetails = (jobs) => { // renderiza todos los productos que reciba
     queryId("cardsContainer").innerHTML = "" // limpio primero mi contenedor, para renderizar luego, eso se hace constantemente en el proyecto
-    const {name, description, location, category, seniority} = jobs
+    const {name, description, location, category, seniority, id} = jobs
     queryId("spinner").classList.remove('hidden')
     setTimeout(()=>{
         queryId("buttonContainer-next-prev").innerHTML=""
@@ -48,13 +47,18 @@ const renderDetails = (jobs) => { // renderiza todos los productos que reciba
                 <p class="card-seniority"><b> Seniority: </b>${seniority}</p>
             </div>
             <div class="btn-container-DeletandEdit">
-                <button class="deleteJobs">Delete</button>
-                <button class="editJobs">Edit</button>
+                <button class="deleteJobs" id="button--DeleteJob" onclick="deleteJob(${"id"})">Delete</button>
+                <button class="editJobs" id="button--DeleteJob" onclick="editJobJob(${"id"})">Edit</button>
             </div>
         </div>         
     `
     },2000)
-    }
+}
+
+const deleteJob =()=>{
+
+}
+
 
 /* getData(page) */
 
@@ -77,6 +81,8 @@ const renderJobs = (data) => { // renderiza todos los productos que reciba
     `
     }
 }
+
+//FUNCIONALIDAD DELETE JOB AND EDIT JOB
 
 
 //FUNCIONALIDADES EN BOTONES DE PREV Y NEXT
