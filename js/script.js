@@ -2,18 +2,16 @@ const url_base = 'https://626c364a5267c14d566e8d8a.mockapi.io/';
 const endpoint = "jobs"
 const queryId = (id) => document.getElementById(id)
 let page = 1
+const cleanTable =()=> queryId("cardsContainer").innerHTML ="" 
 
 // REQUESTS
 const getData = (page) => {
     fetch(`${url_base}${endpoint}?page=${page}&limit=6`)
         .then(response => response.json())
         .then(data => renderJobs(data))
-            /* for(const obj of data){
-                renderJobs(obj)
-            }
-        } */
         .catch(err => console.log(err))
 }
+
 setTimeout(()=>{
     getData(page)
     queryId("spinner").classList.add('hidden')
@@ -22,10 +20,8 @@ setTimeout(()=>{
 const jobsDetail = (id) => {
     fetch(`${url_base}${endpoint}/${id}`)
     .then(res => res.json())
-        .then(res => {
-            renderDetails(res)
-        })
-        .catch(err => console.log(err))
+    .then(res => renderDetails(res))
+    .catch(err => console.log(err))
 }
 
 const deleteJob = (id) => {
@@ -33,8 +29,8 @@ const deleteJob = (id) => {
         method: "DELETE",
     })
     .finally(() => {
-        queryId("cardsContainer").innerHTML =""
-        queryId("spinner").classList.remove('hidden')
+        cleanTable();
+        queryId("spinner").classList.remove('hidden');
         setTimeout(()=>{
             getData(page)
             queryId("spinner").classList.add('hidden')
@@ -45,7 +41,7 @@ const deleteJob = (id) => {
 
 //RENDERS
 const renderDetails = (jobs) => { // renderiza todos los productos que reciba
-    queryId("cardsContainer").innerHTML = "" // limpio primero mi contenedor, para renderizar luego, eso se hace constantemente en el proyecto
+    cleanTable(); // limpio primero mi contenedor, para renderizar luego, eso se hace constantemente en el proyecto
     const {name, description, location, category, seniority, id} = jobs
     queryId("spinner").classList.remove('hidden')
     setTimeout(()=>{
@@ -79,20 +75,20 @@ const renderJobs = (data) => { // renderiza todos los productos que reciba
                 <h5 class="card-title">${name}</h5>
                 <p class="card-description">${description}</p>
                 <p class="card-location"><b>Location:<b> ${location}</p>
-                    <div class="card-cat-sen">
-                        <p class="card-category span">${category}</p>
-                        <p class="card-seniority span">${seniority}</p>
-                    </div>
+                <div class="card-cat-sen">
+                    <p class="card-category span">${category}</p>
+                    <p class="card-seniority span">${seniority}</p>
+                </div>
             </div>
-            <button class="btnSeeDet" onclick="jobsDetail(${id})">See Details</button>
+        <button class="btnSeeDet" onclick="jobsDetail(${id})">See Details</button>
         </div>         
-    `
+        `
     }
 }
 
 //FUNCIONALIDAD DELETE JOB AND EDIT JOB
 const deleteSing = (id) => {
-    queryId("cardsContainer").innerHTML =""
+    cleanTable();
     queryId("cardsContainer").innerHTML = `
     <div class="alertDelete">
         Are you sure you want to delete this item?
