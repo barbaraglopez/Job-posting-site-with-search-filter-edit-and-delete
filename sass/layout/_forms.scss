@@ -71,3 +71,10 @@
         @include center($direction:column, $alingment:flex-start, $justify:flex-start);
     }
 }
+
+.formC{
+    @include center($direction:column, $alingment:center, $justify:center);
+    background-color: $salmon;
+    height: 200px;
+    width: 40%;
+}

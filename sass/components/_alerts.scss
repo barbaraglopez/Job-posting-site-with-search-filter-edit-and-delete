@@ -2,7 +2,8 @@
     @include center($direction:row, $alingment:center, $justify:center);
     width: 90%;
     height: 5em;
-    background-color: white;
+    font-size: 15px;
+    background-color: rgb(234, 203, 203);
     padding: 1em;
     border-radius: 10px;
     border: 2px solid red;
