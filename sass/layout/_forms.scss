@@ -25,26 +25,6 @@
         @media only screen and (max-width: 550px) {
             margin: 2px;
         }
-
-        .form__btn{
-            margin: 7px;
-            border-radius: 5px;
-            padding: 5px;
-            background-color:$almostBlue;
-            color: $letterFont;
-            border: 2px solid $almostBlue;
-
-            @media only screen and (max-width: 550px) {
-                margin: 2px;
-            }
-        }
-
-        .form__btn:hover{
-            cursor: pointer;
-            background-color: $navbarBackground;
-            color: $letterFont;
-            border: 2px solid $navbarBackground;
-        }
     }
 
     @media only screen and (max-width: 590px) {
@@ -69,12 +49,56 @@
     .formContainer{
         margin: 0px;
         @include center($direction:column, $alingment:flex-start, $justify:flex-start);
+        width: 100%;
     }
 }
 
-.formC{
+.form-createJob{
     @include center($direction:column, $alingment:center, $justify:center);
-    background-color: $salmon;
-    height: 200px;
-    width: 40%;
+    form{
+        @include center($direction:column, $alingment:center, $justify:center);
+        background-color: $pink;
+        width: 100%;
+        border-radius: 20px;
+        border: 1px solid $navbarBackground;
+        margin: 20px;
+        padding: 20px;
+        
+        .form__p{
+            background-color: $pink;
+            color: $letterFont;
+            margin: 2px;
+            text-align: center;
+            border-radius: 7px;
+            padding: 4px;
+
+            input{
+                @extend .form__p;
+                @include center($direction:column, $alingment:center, $justify:center);
+                background-color: $letterFont;
+                padding: 4px;
+            }
+        }
+
+        input{
+            @extend .form__p;
+            border-radius: 7px;
+            background-color:$letterFont;
+            margin: 7px;
+        }
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .form-createJob{
+        @include center($direction:column, $alingment:center, $justify:center);
+
+        form{
+            margin:4px;
+
+            input{
+                margin:5px;
+            }
+        }    
+    }
 }

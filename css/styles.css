@@ -45,6 +45,16 @@
     height: 7em;
   }
 }
+@media only screen and (max-width: 320px) {
+  .header .header__imgContainer .header__imgContainer--imgJob, .header .header__imgContainer .header__imgContainer__img {
+    width: 0em;
+    height: 0em;
+  }
+  .header .header__imgContainer .header__imgContainer__img {
+    width: 0em;
+    height: 0em;
+  }
+}
 .header .header__h1 {
   font-family: "Raleway", sans-serif;
   color: #D7B49E;
@@ -226,25 +236,6 @@
     margin: 2px;
   }
 }
-.formContainer .form .form__btn {
-  margin: 7px;
-  border-radius: 5px;
-  padding: 5px;
-  background-color: #698996;
-  color: white;
-  border: 2px solid #698996;
-}
-@media only screen and (max-width: 550px) {
-  .formContainer .form .form__btn {
-    margin: 2px;
-  }
-}
-.formContainer .form .form__btn:hover {
-  cursor: pointer;
-  background-color: #05A8AA;
-  color: white;
-  border: 2px solid #05A8AA;
-}
 @media only screen and (max-width: 590px) {
   .formContainer .form {
     margin: 0px;
@@ -253,7 +244,7 @@
     margin: 5px;
     padding: 2px;
   }
-  .formContainer .form .form__btn {
+  .formContainer .form .form__btn, .formContainer .form .form__btnCreateJob {
     margin: 2px;
     border-radius: 5px;
     padding: 3px;
@@ -267,18 +258,63 @@
     justify-content: flex-start;
     flex-direction: column;
     align-items: flex-start;
+    width: 100%;
   }
 }
-.formC {
+.form-createJob {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background-color: #D7B49E;
-  height: 200px;
-  width: 40%;
+}
+.form-createJob form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: #C65B7C;
+  width: 100%;
+  border-radius: 20px;
+  border: 1px solid #05A8AA;
+  margin: 20px;
+  padding: 20px;
+}
+.form-createJob form .form__p, .form-createJob form input, .form-createJob form input input, .form-createJob form .form__p input, .form-createJob form input input, .form-createJob form input input input {
+  background-color: #C65B7C;
+  color: white;
+  margin: 2px;
+  text-align: center;
+  border-radius: 7px;
+  padding: 4px;
+}
+.form-createJob form .form__p input, .form-createJob form input input, .form-createJob form input input input {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  padding: 4px;
+}
+.form-createJob form input {
+  border-radius: 7px;
+  background-color: white;
+  margin: 7px;
 }
 
+@media only screen and (max-width: 400px) {
+  .form-createJob {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .form-createJob form {
+    margin: 4px;
+  }
+  .form-createJob form input {
+    margin: 5px;
+  }
+}
 .main {
   display: flex;
   justify-content: center;
@@ -435,6 +471,35 @@
 }
 
 .backToInto:hover {
+  background-color: black;
+}
+
+.form__btn, .form__btnCreateJob {
+  margin: 7px;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #698996;
+  color: white;
+  border: 2px solid #698996;
+}
+@media only screen and (max-width: 550px) {
+  .form__btn, .form__btnCreateJob {
+    margin: 2px;
+  }
+}
+
+.form__btn:hover, .form__btnCreateJob:hover {
+  cursor: pointer;
+  background-color: #05A8AA;
+  color: white;
+  border: 2px solid #05A8AA;
+}
+
+.form__btnCreateJob {
+  background-color: #05A8AA;
+}
+
+.form__btnCreateJob:hover {
   background-color: black;
 }
 
