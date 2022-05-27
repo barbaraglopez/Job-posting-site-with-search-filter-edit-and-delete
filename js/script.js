@@ -1,7 +1,10 @@
 const url_base = 'https://626c364a5267c14d566e8d8a.mockapi.io/';
 const endpoint = "jobs"
 const queryId = (id) => document.getElementById(id)
-let page = 1
+let page = 1;
+const inputCountry = queryId("form__select--country");
+const inputSeniority = queryId("form__select--seniority");
+const inputCategory = queryId("form__select--category");
 const cleanTable =()=> queryId("cardsContainer").innerHTML ="" 
 
 const handleSpinner=()=>{
@@ -20,14 +23,21 @@ const getData = (page) => {
 setTimeout(()=>{
     getData(page)
     queryId("spinner").classList.add('hidden')
-},1000)
+    },1000)
 
 
-const jobsDetail = (id) => {
+/* const jobsDetail = (id) => {
     fetch(`${url_base}${endpoint}/${id}`)
     .then(res => res.json())
     .then(res => renderDetails(res))
     .catch(err => console.log(err))
+} */
+
+const getFilter = (location) => {
+    fetch(`${url_base}${endpoint}`)
+        .then(res => res.json())
+        .then(data => renderJobs(data.location))
+        .catch(err => console.log(err))
 }
 
 const deleteJob = (id) => {
@@ -43,6 +53,17 @@ const deleteJob = (id) => {
             queryId("buttonContainer-next-prev").classList.remove("hidden")
         },2000)
     })
+}
+
+const sendJob = () => {
+    fetch(`${url_base}${endpoint}`,{
+        method: "POST",
+        headers: {
+            'Content-Type': 'Application/json'
+        },
+        body: JSON.stringify(sendData())
+    })
+    .finally(() => console.log("termine de ejecutar el POST"))
 }
 
 //RENDERS
@@ -104,29 +125,74 @@ const deleteSing = (id) => {
 `
 }
 
-//NAVBAR BUTTONS
-const btnCreateCareer = queryId("navbar--createJob");
-const form = queryId("form-createJob");
-btnCreateCareer.addEventListener('click',()=>{
-    handleSpinner()
-    setTimeout(()=>{
-    queryId("spinner").classList.add('hidden')
-    queryId("buttonContainer-next-prev").classList.add('hidden')
-    form.classList.remove('hidden')
-    },2000)
-})
+//METHODS
+const sendData = () => {
+    return {
+        name: queryId("title").value,
+        description: queryId("description").value,
+        category: queryId("category").value,
+        seniority:queryId("seniority").value,
+        location:queryId("location").value
+    }
+}
 
-const btnCareer = queryId("navbar--careers").addEventListener('click',()=>{
-    handleSpinner()
-    form.innerHTML=""
+/* const getDataFilter = (filtro) => {
+    let arrayCoincidencias = [];
+    fetch(`${url_base}${endpoint}`)
+        .then(response => response.json())
+        .then(data =>  {
+                arrayCoincidencias = data.filter(obj=>{
+                    obj.location === filtro[0] && obj.seniority === filtro[1] && obj.category === filtro[2]
+                })
+        renderJobs(arrayCoincidencias);    
+        })
+        .catch(err => console.log(err))
+}
+ */
+
+const objForm =()=>{
+    
+}
+let countryValue;
+let seniorityValue;
+let categoryValue;
+
+inputCountry.addEventListener('change',()=>{
+    countryValue = inputCountry.value;
+})
+inputSeniority.addEventListener('change',()=>{
+    seniorityValue = inputSeniority;
+})
+inputCategory.addEventListener('change',()=>{
+    categoryValue = inputCategory;
+}) 
+
+/* queryId("form__search--Btn").addEventListener("click", (e) => {
+    e.preventDefault()
+    getFilter(queryId("form__select--country").value)
+}) */
+
+/* queryId("form__search--Btn").addEventListener('click',(e)=>{
+    e.preventDefault();
+    let arr = [countryValue,seniorityValue,categoryValue]
+    getDataFilter(arr)
+}) */
+
+
+
+//EVENTS
+queryId("form-submit").addEventListener("click",(e)=>{
+    e.preventDefault();
+    sendJob();
+    queryId("form-createJob").classList.add('hidden');
+    handleSpinner();
     setTimeout(()=>{
         getData(page)
         queryId("spinner").classList.add('hidden')
-    },1000)
+        },1000)
 })
 
-
-//FUNCIONALIDADES EN BOTONES DE PREV Y NEXT
+//funcionalidades en el boton prev y next
 queryId("buttonNext").addEventListener('click',()=>{
     queryId("cardsContainer").innerHTML =""
     page++
@@ -138,4 +204,23 @@ queryId("buttonPrev").addEventListener('click',()=>{
     queryId("cardsContainer").innerHTML =""
     page--
     getData(page)}
+})
+
+//navbar buttons
+queryId("navbar--createJob").addEventListener('click',()=>{
+    handleSpinner()
+    setTimeout(()=>{
+    queryId("spinner").classList.add('hidden')
+    queryId("buttonContainer-next-prev").classList.add('hidden')
+    queryId("form-createJob").classList.remove('hidden')
+    },2000)
+})
+
+const btnCareer = queryId("navbar--careers").addEventListener('click',()=>{
+    handleSpinner()
+    form.innerHTML=""
+    setTimeout(()=>{
+        getData(page)
+        queryId("spinner").classList.add('hidden')
+    },1000)
 })

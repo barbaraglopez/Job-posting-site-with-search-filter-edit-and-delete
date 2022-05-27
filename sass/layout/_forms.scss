@@ -66,7 +66,7 @@
         
         .form__p{
             background-color: $pink;
-            color: $letterFont;
+            color: black;
             margin: 2px;
             text-align: center;
             border-radius: 7px;
@@ -76,6 +76,7 @@
                 @extend .form__p;
                 @include center($direction:column, $alingment:center, $justify:center);
                 background-color: $letterFont;
+                color: black;
                 padding: 4px;
             }
         }
