@@ -24,21 +24,21 @@ const getData = (page) => {
     fetch(`${url_base}${endpoint}?page=${page}&limit=6`)
         .then(response => response.json())
         .then(data => renderJobs(data))
-        .catch(err => console.log(err))
+        .catch(err => alert(err))
 }
 
 const jobsDetail = (id) => {
     fetch(`${url_base}${endpoint}/${id}`)
     .then(res => res.json())
     .then(res => renderDetails(res))
-    .catch(err => console.log(err))
+    .catch(err => alert(err))
 } 
 
 const getOnlyCard =(id)=>{
     fetch(`${url_base}${endpoint}/${id}`)
     .then(res => res.json())
     .then(res => cardJob(res))
-    .catch(err => console.log(err))
+    .catch(err => alert(err))
 }
 
 const sendJob = () => {
@@ -49,7 +49,7 @@ const sendJob = () => {
         },
         body: JSON.stringify(sendData())
     })
-    .finally(() => console.log("termine de ejecutar el POST"))
+    .finally(() => ("termine de ejecutar el POST"))
 }
 
 const sendEditData = (id) => {
@@ -168,17 +168,25 @@ const searchfilter = () => {
         fetch(`${url_base}${endpoint}`)
         .then((res) => res.json())
         .then((data) => {
-        renderJobs(
+            const filterData = 
             data.filter(
-            ({ location, seniority, category }) =>
-                location === objfilter.location ||
-                seniority === objfilter.seniority ||
-                category === objfilter.category
-            ));
-        })
-        .catch((err) => console.log(err));
-    }else{
-        alert("completa todos los campos")
+                ({ location, seniority, category }) =>
+                    location === objfilter.location ||
+                    seniority === objfilter.seniority ||
+                    category === objfilter.category
+            );
+            if(filterData.length > 1){
+                renderJobs(filterData) 
+                }else{
+                    queryId("cardsContainer").innerHTML=`
+                    <div class="alertEmpty">
+                    <h3>Ups! Your search returned no results</h3>
+                    <a href="index.html" class="back">Back</a>
+                    </div>`
+                    queryId("buttonContainer-next-prev").classList.add('hidden')
+                }
+            })
+        .catch((err) => (err));
     }
 };
 
@@ -232,18 +240,11 @@ queryId("form-submit").addEventListener("click",(e)=>{
 })
 
 queryId("form__search--Btn").addEventListener("click", (e) => {
-    e.preventDefault()
+    e.preventDefault();
     handleSpinner();
     setTimeout(()=>{
         hiddeSpinner();
         searchfilter();
-        if(queryId("cardsContainer").innerHTML.length - 1){
-            queryId("cardsContainer").innerHTML=`<div class="alertEmpty">
-            <h3>Ups! Your search returned no results</h3>
-            <a href="index.html" class="back">Back</a>
-            </div>`
-            queryId("buttonContainer-next-prev").classList.add('hidden');
-        }
     },2000)
 });
 

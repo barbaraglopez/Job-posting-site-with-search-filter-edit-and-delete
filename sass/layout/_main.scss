@@ -80,11 +80,29 @@
                 border: 1px solid rgb(134, 7, 202);
             }
         }
+
+        @media only screen and (max-width: 790px) {
+            .card{
+                width: 40%;
+                margin: 5px;
+            }
+        }
+
+        @media only screen and (max-width: 450px) {
+            .card{
+                width: 80%;
+                margin: 5px;
+            }
+        }
     }
 
-    @media only screen and (max-width: 750px) {
+    @media only screen and (max-width: 790px) {
         .main{
             @include center($direction:column, $alingment:center, $justify:center);
+        }
+
+        .card{
+            width: 50%;
         }
     }
 }
