@@ -4,7 +4,6 @@
     height: 400px;
     background-color: $salmon;
     border-radius: 15px;
-    margin-top: 100px;
     padding: 15px;
     border: 2px solid $navbarBackground;
 
@@ -50,5 +49,22 @@
 
     .btn-container-DeletandEdit{
         background-color: $salmon;
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    .detailCard{
+    width: 300px;
+    height: 400px;
+    border-radius: 15px;
+    padding: 15px;
+    border: 2px solid $navbarBackground;
+
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .detailCard{
+        margin: 20px 5px;
     }
 }

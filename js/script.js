@@ -2,17 +2,24 @@ const url_base = 'https://626c364a5267c14d566e8d8a.mockapi.io/';
 const endpoint = "jobs"
 const queryId = (id) => document.getElementById(id)
 let page = 1;
-const inputCountry = queryId("form__select--country");
-const inputSeniority = queryId("form__select--seniority");
-const inputCategory = queryId("form__select--category");
+let isEdit = false
+
+const hiddeSpinner=()=> queryId("spinner").classList.add('hidden')
 const cleanTable =()=> queryId("cardsContainer").innerHTML ="" 
+const main = queryId("main")
 
 const handleSpinner=()=>{
     cleanTable()
     queryId("spinner").classList.remove('hidden')
+    queryId("buttonContainer-next-prev").classList.add("hidden")
 }
 
 // REQUESTS
+setTimeout(()=>{
+    getData(page)
+    queryId("spinner").classList.add('hidden')
+},1000) 
+
 const getData = (page) => {
     fetch(`${url_base}${endpoint}?page=${page}&limit=6`)
         .then(response => response.json())
@@ -20,39 +27,18 @@ const getData = (page) => {
         .catch(err => console.log(err))
 }
 
-setTimeout(()=>{
-    getData(page)
-    queryId("spinner").classList.add('hidden')
-    },1000)
-
-
-/* const jobsDetail = (id) => {
+const jobsDetail = (id) => {
     fetch(`${url_base}${endpoint}/${id}`)
     .then(res => res.json())
     .then(res => renderDetails(res))
     .catch(err => console.log(err))
-} */
+} 
 
-const getFilter = (location) => {
-    fetch(`${url_base}${endpoint}`)
-        .then(res => res.json())
-        .then(data => renderJobs(data.location))
-        .catch(err => console.log(err))
-}
-
-const deleteJob = (id) => {
-    fetch(`${url_base}${endpoint}/${id}`, {
-        method: "DELETE",
-    })
-    .finally(() => {
-        cleanTable();
-        queryId("spinner").classList.remove('hidden');
-        setTimeout(()=>{
-            getData(page)
-            queryId("spinner").classList.add('hidden')
-            queryId("buttonContainer-next-prev").classList.remove("hidden")
-        },2000)
-    })
+const getOnlyCard =(id)=>{
+    fetch(`${url_base}${endpoint}/${id}`)
+    .then(res => res.json())
+    .then(res => cardJob(res))
+    .catch(err => console.log(err))
 }
 
 const sendJob = () => {
@@ -66,14 +52,33 @@ const sendJob = () => {
     .finally(() => console.log("termine de ejecutar el POST"))
 }
 
+const sendEditData = (id) => {
+    fetch(`${url_base}${endpoint}/${id}`,{
+        method: "PUT",
+        headers: {
+            'Content-Type': 'Application/json'
+        },
+        body: JSON.stringify(newData())
+    })
+    .finally(() => {
+        queryId("formCreate").classList.add('hidden');
+        handleSpinner();
+        setTimeout(()=>{
+        hiddeSpinner();
+        page = 1;
+        getData(page)
+        },2000)
+    })
+}
+
+
 //RENDERS
-const renderDetails = (jobs) => { // renderiza todos los productos que reciba
-    cleanTable(); // limpio primero mi contenedor, para renderizar luego, eso se hace constantemente en el proyecto
-    const {name, description, location, category, seniority, id} = jobs
-    queryId("spinner").classList.remove('hidden')
+const renderDetails = (job) => { // renderiza todos los productos que reciba
+    const {name, description, location, category, seniority, id} = job
+    handleSpinner()
     setTimeout(()=>{
         queryId("buttonContainer-next-prev").classList.add("hidden")
-        queryId("spinner").classList.add('hidden')
+        hiddeSpinner()
         queryId("cardsContainer").innerHTML = `
         <div class="detailCard">
             <img class="imgCardDetails" src="./img/job.png"alt="${name}">
@@ -86,12 +91,13 @@ const renderDetails = (jobs) => { // renderiza todos los productos que reciba
             </div>
             <div class="btn-container-DeletandEdit">
                 <button class="deleteJobs" id="button--DeleteJob" onclick="deleteSing(${id})">Delete</button>
-                <button class="editJobs" id="button--DeleteJob" onclick="editJobJob(${id})">Edit</button>
+                <button class="editJobs" id="button--editJob" onclick="editJob(${id})">Edit</button>
             </div>
         </div>         
     `
     },2000)
 }
+
 
 const renderJobs = (data) => { // renderiza todos los productos que reciba
     for(const {name, description, location, category, id, seniority} of data){
@@ -136,49 +142,82 @@ const sendData = () => {
     }
 }
 
-/* const getDataFilter = (filtro) => {
-    let arrayCoincidencias = [];
-    fetch(`${url_base}${endpoint}`)
-        .then(response => response.json())
-        .then(data =>  {
-                arrayCoincidencias = data.filter(obj=>{
-                    obj.location === filtro[0] && obj.seniority === filtro[1] && obj.category === filtro[2]
-                })
-        renderJobs(arrayCoincidencias);    
+const deleteJob = (id) => {
+    fetch(`${url_base}${endpoint}/${id}`, {
+        method: "DELETE",
+    })
+    .finally(() => {
+        cleanTable();
+        queryId("spinner").classList.remove('hidden');
+        setTimeout(()=>{
+            getData(page)
+            hiddeSpinner();
+            queryId("buttonContainer-next-prev").classList.remove("hidden")
+        },2000)
+    })
+}
+
+
+const searchfilter = () => {
+    let objfilter = {
+        location:queryId("form__select--country").value,
+        seniority:queryId("form__select--seniority").value,
+        category:queryId("form__select--category").value
+    };
+    if(objfilter.location !== undefined && objfilter.seniority !== undefined && objfilter.category !== undefined){
+        fetch(`${url_base}${endpoint}`)
+        .then((res) => res.json())
+        .then((data) => {
+        renderJobs(
+            data.filter(
+            ({ location, seniority, category }) =>
+                location === objfilter.location &&
+                seniority === objfilter.seniority &&
+                category === objfilter.category
+            )
+        );
         })
-        .catch(err => console.log(err))
+        .catch((err) => console.log(err));
+    }else{
+        alert("completa todos los campos")
+    }
+};
+
+const newData = () => {
+    return {
+        name: queryId("editTitle").value,
+        category: queryId("editCategory").value,
+        location: queryId("editLocation").value,
+        description: queryId("editDescription").value,
+        seniority: queryId("editSeniority").value
+    }
 }
- */
+const cardJob = (job) =>{
+    const {category, name, description, seniority,location} = job
+        queryId("editTitle").value = name
+        queryId("editDescription").value = description
+        queryId("editLocation").value = location
+        queryId("editCategory").value = category
+        queryId("editSeniority").value = seniority
+    }
 
-const objForm =()=>{
-    
+
+const editJob=(id)=>{
+    getOnlyCard(id)
+    queryId("formCreate").classList.remove('hidden');
+    main.style.flexDirection='row'
+    isEdit = true
+    addEvent(id)
 }
-let countryValue;
-let seniorityValue;
-let categoryValue;
 
-inputCountry.addEventListener('change',()=>{
-    countryValue = inputCountry.value;
-})
-inputSeniority.addEventListener('change',()=>{
-    seniorityValue = inputSeniority;
-})
-inputCategory.addEventListener('change',()=>{
-    categoryValue = inputCategory;
-}) 
-
-/* queryId("form__search--Btn").addEventListener("click", (e) => {
-    e.preventDefault()
-    getFilter(queryId("form__select--country").value)
-}) */
-
-/* queryId("form__search--Btn").addEventListener('click',(e)=>{
-    e.preventDefault();
-    let arr = [countryValue,seniorityValue,categoryValue]
-    getDataFilter(arr)
-}) */
-
-
+const addEvent=(id)=>{
+    queryId("send-edit-job").addEventListener("click", (e) => {
+        e.preventDefault()
+        if (isEdit) {
+            sendEditData(id)
+        }
+    })
+}
 
 //EVENTS
 queryId("form-submit").addEventListener("click",(e)=>{
@@ -187,9 +226,35 @@ queryId("form-submit").addEventListener("click",(e)=>{
     queryId("form-createJob").classList.add('hidden');
     handleSpinner();
     setTimeout(()=>{
-        getData(page)
-        queryId("spinner").classList.add('hidden')
+        getData(page);
+        hiddeSpinner();
         },1000)
+})
+
+queryId("form__search--Btn").addEventListener("click", (e) => {
+    e.preventDefault()
+    handleSpinner();
+    setTimeout(()=>{
+    hiddeSpinner();
+    searchfilter();
+    if(queryId("cardsContainer").innerHTML.length < 1){
+        queryId("cardsContainer").innerHTML=`<div class="alertEmpty">
+        <h3>Ups! Your search returned no results</h3>
+        <a href="index.html" class="back">Back</a>
+        </div>`
+        queryId("buttonContainer-next-prev").classList.add('hidden');
+    }
+    },2000)
+});
+
+queryId("form__clean--Btn").addEventListener("click",()=>{
+    let objfilter = {
+        location:queryId("form__select--country").value="",
+        seniority:queryId("form__select--seniority").value="",
+        category:queryId("form__select--category").value
+    };
+
+    return objfilter
 })
 
 //funcionalidades en el boton prev y next
@@ -224,3 +289,4 @@ const btnCareer = queryId("navbar--careers").addEventListener('click',()=>{
         queryId("spinner").classList.add('hidden')
     },1000)
 })
+

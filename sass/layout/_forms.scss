@@ -61,7 +61,6 @@
         width: 100%;
         border-radius: 20px;
         border: 1px solid $navbarBackground;
-        margin: 20px;
         padding: 20px;
         
         .form__p{
@@ -90,13 +89,54 @@
     }
 }
 
+.container-formEdit{
+    @include center($direction:column, $alingment:center, $justify:center);
+    .form--editJob{
+        @include center($direction:column, $alingment:center, $justify:center);
+        text-align: center;
+        background-color: $bannerColor;
+        width: 50%;
+        border-radius: 20px;
+        border: 1px solid $navbarBackground;
+        margin: 20px;
+        padding: 20px;
+        border: 1px solid $navbarBackground;
+
+        p{
+            background-color:$bannerColor;
+            color: white;
+            padding: 5px; 
+            margin: 5px;
+
+            input{
+                background-color:$backgroundColor;
+                padding: 5px;   
+                border-radius: 3px;    
+                color: white;     
+            }
+        }
+    }
+
+    @media only screen and (max-width: 990px) {
+        .form--editJob{
+        width: 300px;
+        height: 400px;
+        border-radius: 15px;
+        padding: 15px;
+        border: 2px solid $navbarBackground;
+        }
+    }
+}
+
+
+
+
+
 @media only screen and (max-width: 400px) {
     .form-createJob{
         @include center($direction:column, $alingment:center, $justify:center);
-
         form{
             margin:4px;
-
             input{
                 margin:5px;
             }

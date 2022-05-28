@@ -2,6 +2,7 @@
     @include center($direction:row, $alingment:center, $justify:center);
     position: absolute;
     bottom: 0;
+    left: 0;
     background-color: $pink;
     width: 100vw;
     height: 2.8em;
@@ -18,22 +19,8 @@
 
 }
 
-@media only screen and (max-width: 590px) {
+@media only screen and (max-width: 750px) {
     .footer{
-        font-size: 13px;
-
-        img{
-            height: 0.7rem;
-        }
-    }
-}
-
-@media only screen and (max-width: 315px) {
-    .footer{
-        font-size: 8px;
-
-        img{
-            height: 0.7rem;
-        }
+        display: none;
     }
 }

@@ -87,7 +87,6 @@
   height: 400px;
   background-color: #D7B49E;
   border-radius: 15px;
-  margin-top: 100px;
   padding: 15px;
   border: 2px solid #05A8AA;
 }
@@ -121,6 +120,20 @@
   background-color: #D7B49E;
 }
 
+@media only screen and (max-width: 990px) {
+  .detailCard {
+    width: 300px;
+    height: 400px;
+    border-radius: 15px;
+    padding: 15px;
+    border: 2px solid #05A8AA;
+  }
+}
+@media only screen and (max-width: 750px) {
+  .detailCard {
+    margin: 20px 5px;
+  }
+}
 .spinner {
   position: relative;
   width: 55px;
@@ -172,6 +185,42 @@
   color: red;
   font-size: 15px;
   margin: 3em;
+}
+
+.alertEmpty {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  background-color: #698996;
+  margin: 20px;
+  padding: 20px;
+  width: 90%;
+  height: 5em;
+  border-radius: 15px;
+  border: 1px solid white;
+}
+.alertEmpty h3 {
+  background-color: #698996;
+}
+.alertEmpty a {
+  background-color: #698996;
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: white;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 30px;
+  border: 2px solid white;
+}
+.alertEmpty a:hover {
+  background-color: black;
+  color: white;
+  border: 2px solid white;
 }
 
 .navbar {
@@ -276,7 +325,6 @@
   width: 100%;
   border-radius: 20px;
   border: 1px solid #05A8AA;
-  margin: 20px;
   padding: 20px;
 }
 .form-createJob form .form__p, .form-createJob form input, .form-createJob form input input, .form-createJob form .form__p input, .form-createJob form input input, .form-createJob form input input input {
@@ -300,6 +348,48 @@
   border-radius: 7px;
   background-color: white;
   margin: 7px;
+}
+
+.container-formEdit {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.container-formEdit .form--editJob {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #BC412B;
+  width: 50%;
+  border-radius: 20px;
+  border: 1px solid #05A8AA;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #05A8AA;
+}
+.container-formEdit .form--editJob p {
+  background-color: #BC412B;
+  color: white;
+  padding: 5px;
+  margin: 5px;
+}
+.container-formEdit .form--editJob p input {
+  background-color: #05A8AA;
+  padding: 5px;
+  border-radius: 3px;
+  color: white;
+}
+@media only screen and (max-width: 990px) {
+  .container-formEdit .form--editJob {
+    width: 300px;
+    height: 400px;
+    border-radius: 15px;
+    padding: 15px;
+    border: 2px solid #05A8AA;
+  }
 }
 
 @media only screen and (max-width: 400px) {
@@ -399,6 +489,14 @@
   cursor: pointer;
   border: 1px solid rgb(134, 7, 202);
 }
+@media only screen and (max-width: 750px) {
+  .main .main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
 .footer {
   display: flex;
@@ -407,6 +505,7 @@
   align-items: center;
   position: absolute;
   bottom: 0;
+  left: 0;
   background-color: #C65B7C;
   width: 100vw;
   height: 2.8em;
@@ -421,20 +520,9 @@
   margin: 5px;
 }
 
-@media only screen and (max-width: 590px) {
+@media only screen and (max-width: 750px) {
   .footer {
-    font-size: 13px;
-  }
-  .footer img {
-    height: 0.7rem;
-  }
-}
-@media only screen and (max-width: 315px) {
-  .footer {
-    font-size: 8px;
-  }
-  .footer img {
-    height: 0.7rem;
+    display: none;
   }
 }
 .main__prevButton, .backToInto, .remove, .editJobs, .deleteJobs, .main__nextButton {
