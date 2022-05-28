@@ -157,7 +157,6 @@ const deleteJob = (id) => {
     })
 }
 
-
 const searchfilter = () => {
     let objfilter = {
         location:queryId("form__select--country").value,
