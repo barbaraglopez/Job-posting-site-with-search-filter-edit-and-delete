@@ -171,11 +171,10 @@ const searchfilter = () => {
         renderJobs(
             data.filter(
             ({ location, seniority, category }) =>
-                location === objfilter.location &&
-                seniority === objfilter.seniority &&
+                location === objfilter.location ||
+                seniority === objfilter.seniority ||
                 category === objfilter.category
-            )
-        );
+            ));
         })
         .catch((err) => console.log(err));
     }else{
@@ -192,6 +191,7 @@ const newData = () => {
         seniority: queryId("editSeniority").value
     }
 }
+
 const cardJob = (job) =>{
     const {category, name, description, seniority,location} = job
         queryId("editTitle").value = name
@@ -199,7 +199,7 @@ const cardJob = (job) =>{
         queryId("editLocation").value = location
         queryId("editCategory").value = category
         queryId("editSeniority").value = seniority
-    }
+}
 
 
 const editJob=(id)=>{
@@ -210,6 +210,7 @@ const editJob=(id)=>{
     addEvent(id)
 }
 
+//EVENTS
 const addEvent=(id)=>{
     queryId("send-edit-job").addEventListener("click", (e) => {
         e.preventDefault()
@@ -219,7 +220,6 @@ const addEvent=(id)=>{
     })
 }
 
-//EVENTS
 queryId("form-submit").addEventListener("click",(e)=>{
     e.preventDefault();
     sendJob();
@@ -235,26 +235,27 @@ queryId("form__search--Btn").addEventListener("click", (e) => {
     e.preventDefault()
     handleSpinner();
     setTimeout(()=>{
-    hiddeSpinner();
-    searchfilter();
-    if(queryId("cardsContainer").innerHTML.length < 1){
-        queryId("cardsContainer").innerHTML=`<div class="alertEmpty">
-        <h3>Ups! Your search returned no results</h3>
-        <a href="index.html" class="back">Back</a>
-        </div>`
-        queryId("buttonContainer-next-prev").classList.add('hidden');
-    }
+        hiddeSpinner();
+        searchfilter();
+        if(queryId("cardsContainer").innerHTML.length - 1){
+            queryId("cardsContainer").innerHTML=`<div class="alertEmpty">
+            <h3>Ups! Your search returned no results</h3>
+            <a href="index.html" class="back">Back</a>
+            </div>`
+            queryId("buttonContainer-next-prev").classList.add('hidden');
+        }
     },2000)
 });
 
 queryId("form__clean--Btn").addEventListener("click",()=>{
-    let objfilter = {
-        location:queryId("form__select--country").value="",
-        seniority:queryId("form__select--seniority").value="",
-        category:queryId("form__select--category").value
-    };
-
-    return objfilter
+    queryId("form__select--country").value = "Chosse a country";
+    queryId("form__select--seniority").value = "Chosse a seniority";
+    queryId("form__select--category").value ="Chosse a category";
+    handleSpinner();
+    setTimeout(()=>{
+        hiddeSpinner();
+        getData(page);
+    },1000) 
 })
 
 //funcionalidades en el boton prev y next
@@ -282,11 +283,11 @@ queryId("navbar--createJob").addEventListener('click',()=>{
 })
 
 const btnCareer = queryId("navbar--careers").addEventListener('click',()=>{
-    handleSpinner()
-    form.innerHTML=""
+    cleanTable();
+    handleSpinner();
     setTimeout(()=>{
-        getData(page)
-        queryId("spinner").classList.add('hidden')
+        getData(page);
+        hiddeSpinner();
     },1000)
 })
 
