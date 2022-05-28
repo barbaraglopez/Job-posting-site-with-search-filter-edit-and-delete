@@ -80,6 +80,10 @@
             }
         }
 
+        .button-container-createJob{
+            background-color:$pink;
+        }
+
         input{
             @extend .form__p;
             border-radius: 7px;
@@ -111,9 +115,13 @@
             input{
                 background-color:$backgroundColor;
                 padding: 5px;   
-                border-radius: 3px;    
+                border-radius: 9px;    
                 color: white;     
             }
+        }
+
+        .form-edit-BtnContainer{
+            background-color:$bannerColor;
         }
     }
 

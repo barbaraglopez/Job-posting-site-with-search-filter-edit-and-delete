@@ -3,26 +3,36 @@
     width: 100vw;
     height: 3rem;
     @include center($direction:row, $alingment:center, $justify:center);
-
-    .navbar__a{
-        text-decoration: $linkSinLinea;
-        font-family: $font--body;
-        font-size: 20px;
-        font-weight: bold;
-        margin: 0px 20px;
-        color: $pink;
-        -webkit-text-stroke: 0.7px $bannerColor;
+    .navbar__aContainer{
         background-color:$backgroundColor;
-    }
-
-    .navbar__a:hover{
-        color:$bannerColor;
-        -webkit-text-stroke: 0.7px black;
-    }
-
-    @media only screen and (max-width: 590px) {
         .navbar__a{
-            font-size: 15px;
+            text-decoration: $linkSinLinea;
+            font-family: $font--body;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0px 20px;
+            color: $pink;
+            -webkit-text-stroke: 0.7px $bannerColor;
+            background-color:$backgroundColor;
+        }
+    
+        .navbar__a:hover{
+            color:$bannerColor;
+            -webkit-text-stroke: 0.7px black;
+        }
+    
+        @media only screen and (max-width: 590px) {
+            .navbar__a{
+                font-size: 15px;
+            }
+        }
+    }
+
+    .switch{
+        width: 50px;
+        border-radius: 10px;
+        .span{
+            width: 50px;
         }
     }
 }

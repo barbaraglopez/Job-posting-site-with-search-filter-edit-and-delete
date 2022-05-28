@@ -1,3 +1,17 @@
+window.addEventListener("load", () => {
+    setTimeout(()=>{
+        getData(page)
+        queryId("spinner").classList.add('hidden')
+    },1000) 
+
+document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" || e.key === "scape") {
+            backToHome();
+            queryId("form-createJob").classList.add('hidden');
+        }
+    });
+})
+
 const url_base = 'https://626c364a5267c14d566e8d8a.mockapi.io/';
 const endpoint = "jobs"
 const queryId = (id) => document.getElementById(id)
@@ -15,11 +29,6 @@ const handleSpinner=()=>{
 }
 
 // REQUESTS
-setTimeout(()=>{
-    getData(page)
-    queryId("spinner").classList.add('hidden')
-},1000) 
-
 const getData = (page) => {
     fetch(`${url_base}${endpoint}?page=${page}&limit=6`)
         .then(response => response.json())
@@ -93,6 +102,7 @@ const renderDetails = (job) => { // renderiza todos los productos que reciba
                 <button class="deleteJobs" id="button--DeleteJob" onclick="deleteSing(${id})">Delete</button>
                 <button class="editJobs" id="button--editJob" onclick="editJob(${id})">Edit</button>
             </div>
+            <button class="editJobs" id="button--editJob" onclick="backToHome()">Back</button>
         </div>         
     `
     },2000)
@@ -126,7 +136,7 @@ const deleteSing = (id) => {
     <div class="alertDelete">
         Are you sure you want to delete this item?
         <button class="remove" onclick="deleteJob(${id})">Remove</button>
-        <a href="index.html" class="backToInto" >Back</a>
+        <a href="index.html" class="backToInto">Back</a>
     </div>
 `
 }
@@ -218,6 +228,17 @@ const editJob=(id)=>{
 }
 
 //EVENTS
+const backToHome =()=>{
+    queryId("formCreate").classList.add('hidden');
+    handleSpinner()
+    setTimeout(()=>{
+        queryId("buttonContainer-next-prev").classList.remove("hidden");
+        hiddeSpinner();
+        page =1;
+        getData(page)
+    },2000)
+}
+
 const addEvent=(id)=>{
     queryId("send-edit-job").addEventListener("click", (e) => {
         e.preventDefault()
@@ -226,16 +247,22 @@ const addEvent=(id)=>{
         }
     })
 }
+queryId("form-back").addEventListener('click',()=>{
+    queryId("form-createJob").classList.add("hidden");
+    backToHome();
+})
+
+queryId("for--cancel-createJob").addEventListener('click',()=>{
+    backToHome();
+})
 
 queryId("form-submit").addEventListener("click",(e)=>{
     e.preventDefault();
     sendJob();
     queryId("form-createJob").classList.add('hidden');
     handleSpinner();
-    setTimeout(()=>{
-        getData(page);
-        hiddeSpinner();
-        },1000)
+    backToHome();
+    queryId("buttonContainer-next-prev").classList.remove("hidden");
 })
 
 queryId("form__search--Btn").addEventListener("click", (e) => {

@@ -227,7 +227,10 @@
   flex-direction: row;
   align-items: center;
 }
-.navbar .navbar__a {
+.navbar .navbar__aContainer {
+  background-color: #05A8AA;
+}
+.navbar .navbar__aContainer .navbar__a {
   text-decoration: none;
   font-family: "Open Sans", sans-serif;
   font-size: 20px;
@@ -237,14 +240,21 @@
   -webkit-text-stroke: 0.7px #BC412B;
   background-color: #05A8AA;
 }
-.navbar .navbar__a:hover {
+.navbar .navbar__aContainer .navbar__a:hover {
   color: #BC412B;
   -webkit-text-stroke: 0.7px black;
 }
 @media only screen and (max-width: 590px) {
-  .navbar .navbar__a {
+  .navbar .navbar__aContainer .navbar__a {
     font-size: 15px;
   }
+}
+.navbar .switch {
+  width: 50px;
+  border-radius: 10px;
+}
+.navbar .switch .span {
+  width: 50px;
 }
 
 .formContainer {
@@ -339,6 +349,9 @@
   color: black;
   padding: 4px;
 }
+.form-createJob form .button-container-createJob {
+  background-color: #C65B7C;
+}
 .form-createJob form input {
   border-radius: 7px;
   background-color: white;
@@ -374,8 +387,11 @@
 .container-formEdit .form--editJob p input {
   background-color: #05A8AA;
   padding: 5px;
-  border-radius: 3px;
+  border-radius: 9px;
   color: white;
+}
+.container-formEdit .form--editJob .form-edit-BtnContainer {
+  background-color: #BC412B;
 }
 @media only screen and (max-width: 990px) {
   .container-formEdit .form--editJob {

@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/styles.css" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
         <script src="./js/script.js" defer></script>
     </head>
     <body>
@@ -18,9 +19,17 @@
             </div>
         </header>
         <nav class="navbar">
-            <a href="#" class="navbar__a" id="navbar--careers">Careers</a>
-            <a href="index.html" class="navbar__a">Home</a>
-            <a href="#" class="navbar__a" id="navbar--createJob">Create a job</a>
+            <div class="navbar__aContainer">
+                <a href="#" class="navbar__a" id="navbar--careers">Careers</a>
+                <a href="index.html" class="navbar__a">Home</a>
+                <a href="#" class="navbar__a" id="navbar--createJob">Create a job</a>
+            </div>
+            <div class="navbar__darkMood"></div>
+            <button class="switch" id="twich">
+                <span class="span moon">🌛</i></span>
+                <span class="span soon">🌞</i>
+                </span>
+            </button>
         </nav>
         <div class="formContainer">    
             <form class="form">
@@ -62,7 +71,10 @@
                     <p class="form__p">Tags: <input type="text" name="tags" placeholder="Brazil" id="location"></p>
                     <input type="text" name="seniority" placeholder="Junior" id="seniority">
                     <input type="text" name="category" placeholder="Developmen" id="category">
-                    <button class="form__btnCreateJob" type="submit" id="form-submit">Submit</button>
+                    <div class="button-container-createJob">
+                        <button class="form__btnCreateJob" type="submit" id="form-submit">Send</button>
+                        <button class="form__btnCreateJob" type="submit" id="form-back">Back</button>
+                    </div>
                 </form>
             </div>        
             <div class="main__cardsContainer" id="cardsContainer">
@@ -78,7 +90,10 @@
                     <p class="form__p">Tags: <input type="text" name="tags" placeholder="Brazil" id="editLocation"></p>
                     <p class="form__p">Seniority: <input type="text" name="seniority" placeholder="Junior" id="editSeniority"></p>
                     <p class="form__p">Category: <input type="text" name="category" placeholder="Developmen" id="editCategory"></p>
-                    <button class="form__btnCreateJob" type="submit" id="send-edit-job">Submit</button>
+                    <div class="form-edit-BtnContainer">
+                        <button class="form__btnCreateJob" type="submit" id="send-edit-job">Send info</button>
+                        <button class="form__btnCreateJob" id="for--cancel-createJob">Cancel</button>
+                    </div>
                 </form>
             </div>
         </main>
