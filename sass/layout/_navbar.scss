@@ -1,25 +1,17 @@
 .navbar{
-    background-color:$navbarBackground;
     width: 100vw;
-    height: 3rem;
-    @include center($direction:row, $alingment:center, $justify:center);
+    height: 4rem;
+    @include center($direction:column, $alingment:center, $justify:center);
+    text-align: center;
     .navbar__aContainer{
-        background-color:$backgroundColor;
         .navbar__a{
             text-decoration: $linkSinLinea;
             font-family: $font--body;
-            font-size: 20px;
+            font-size: 22px;
             font-weight: bold;
             margin: 0px 20px;
-            color: $pink;
-            -webkit-text-stroke: 0.7px $bannerColor;
-            background-color:$backgroundColor;
         }
     
-        .navbar__a:hover{
-            color:$bannerColor;
-            -webkit-text-stroke: 0.7px black;
-        }
     
         @media only screen and (max-width: 590px) {
             .navbar__a{
@@ -28,11 +20,13 @@
         }
     }
 
-    .switch{
-        width: 50px;
-        border-radius: 10px;
-        .span{
-            width: 50px;
+    .navbar__darkMood{
+        @include center($direction:row, $alingment:center, $justify:center);
+    }
+
+    @media only screen and (max-width: 320px) {
+        .navbar__darkMood{
+            display: none;
         }
     }
 }

@@ -21,7 +21,6 @@
     @extend.main__prevButton;
 }
 .main__prevButton:hover{
-    background-color: $pink;
     cursor: pointer;
 }
 
@@ -61,7 +60,6 @@
 
 .form__btn:hover{
     cursor: pointer;
-    background-color: $navbarBackground;
     color: $letterFont;
     border: 2px solid $navbarBackground;
 }
@@ -73,4 +71,10 @@
 
 .form__btnCreateJob:hover{
     background-color: black;
+}
+
+.btn-toggle{
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: transparent;
 }

@@ -6,7 +6,116 @@
   margin: 0;
   padding: 0;
   font-family: "Open Sans", sans-serif;
-  background-color: #B8D5B8;
+}
+
+body {
+  --text-color: #222;
+  --bkg-color:#B8D5B8;
+  --card-color:#D7B49E;
+  --banner-color:#BC412B;
+  --h1-color:#D7B49E;
+  --navbar-color:#05A8AA;
+  --navbar--a-color:#C65B7C;
+  --hover-a-color:#C9C5BA;
+  --bkg-span:#C65B7C;
+  --select-color:#C65B7C;
+  --title:#BC412B;
+  --font-letter:white;
+}
+
+body.dark-theme {
+  --text-color: #eee;
+  --bkg-color: #121212;
+  --card-color:#44355B;
+  --banner-color:#362A46;
+  --h1-color:rgb(225, 212, 212);
+  --navbar-color:#C39BD3;
+  --navbar--a-color:black;
+  --hover-a-color:rgb(123, 114, 114);
+  --bkg-span:#2A2230;
+  --select-color:#C39BD3;
+  --title:#CF99E3;
+  --font-letter:black;
+}
+
+body {
+  background: var(--bkg-color);
+}
+
+.header {
+  background-color: var(--banner-color);
+}
+.header .header__imgContainer {
+  background-color: var(--banner-color);
+}
+.header .header__h1 {
+  color: var(--h1-color);
+}
+
+.spinner:after {
+  background-color: var(--bkg-color);
+}
+
+.navbar {
+  background-color: var(--navbar-color);
+}
+
+.navbar__a {
+  color: var(--navbar--a-color);
+}
+
+.navbar__a:hover {
+  color: var(--hover-a-color);
+  -webkit-text-stroke: 0.7px --banner-color;
+}
+
+.form__select {
+  background-color: var(--select-color);
+  color: var(--font-letter);
+}
+.form__select option {
+  background-color: var(--select-color);
+}
+
+.card {
+  background-color: var(--card-color);
+}
+.card .span {
+  background-color: var(--bkg-span);
+}
+.card .btnSeeDet {
+  background-color: var(--navbar-color);
+}
+.card .card-title {
+  color: var(--title);
+}
+
+.form-createJob form {
+  background-color: var(--bkg-span);
+}
+
+.form--editJob {
+  background-color: var(--banner-color);
+}
+
+.detailCard {
+  background-color: var(--card-color);
+}
+
+.main__prevButton:hover, .backToInto:hover, .remove:hover, .editJobs:hover, .deleteJobs:hover, .main__nextButton:hover {
+  background-color: var(--select-color);
+}
+
+.form__btn:hover, .form__btnCreateJob:hover {
+  background-color: var(--navbar-color);
+}
+
+.footer {
+  background-color: var(--select-color);
+}
+
+p {
+  color: var(--text-color);
 }
 
 .hidden {
@@ -18,7 +127,6 @@
   justify-content: space-around;
   flex-direction: row;
   align-items: center;
-  background-color: #BC412B;
   height: 9em;
   width: 100vw;
 }
@@ -27,13 +135,11 @@
   justify-content: space-around;
   flex-direction: column;
   align-items: center;
-  background-color: #BC412B;
 }
 .header .header__imgContainer .header__imgContainer--imgJob, .header .header__imgContainer .header__imgContainer__img {
   width: 10em;
   height: 7em;
   text-align: center;
-  background-color: #BC412B;
 }
 @media only screen and (max-width: 750px) {
   .header .header__imgContainer .header__imgContainer--imgJob, .header .header__imgContainer .header__imgContainer__img {
@@ -57,11 +163,9 @@
 }
 .header .header__h1 {
   font-family: "Raleway", sans-serif;
-  color: #D7B49E;
   font-size: 62px;
   font-weight: 900;
   text-transform: capitalize;
-  background-color: #BC412B;
 }
 @media only screen and (max-width: 1290px) {
   .header .header__h1 {
@@ -83,9 +187,8 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  width: 400px;
-  height: 400px;
-  background-color: #D7B49E;
+  width: 40%;
+  height: 50%;
   border-radius: 15px;
   padding: 15px;
   border: 2px solid #05A8AA;
@@ -93,10 +196,8 @@
 .detailCard .imgCardDetails {
   width: 50%;
   height: 45%;
-  background-color: #D7B49E;
 }
 .detailCard .card-body {
-  background-color: #D7B49E;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -104,26 +205,16 @@
 }
 .detailCard .card-body .card-title {
   font-size: 23px;
-  color: #05A8AA;
   -webkit-text-stroke: 0.8px black;
   padding: 5px;
-  background-color: #D7B49E;
 }
 .detailCard .card-body .card-description, .detailCard .card-body .card-category, .detailCard .card-body .card-seniority, .detailCard .card-body .card-location {
   font-size: 15px;
-  background-color: #D7B49E;
 }
-.detailCard .card-body .card-description b, .detailCard .card-body .card-category b, .detailCard .card-body .card-seniority b, .detailCard .card-body .card-location b {
-  background-color: #D7B49E;
-}
-.detailCard .btn-container-DeletandEdit {
-  background-color: #D7B49E;
-}
-
 @media only screen and (max-width: 990px) {
   .detailCard {
-    width: 500px;
-    height: 400px;
+    width: 50%;
+    height: 50%;
     border-radius: 15px;
     padding: 15px;
     border: 2px solid #05A8AA;
@@ -154,7 +245,6 @@
 .spinner:after {
   width: 85%;
   height: 85%;
-  background-color: #B8D5B8;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -219,42 +309,36 @@
 }
 
 .navbar {
-  background-color: #05A8AA;
   width: 100vw;
-  height: 3rem;
+  height: 4rem;
   display: flex;
   justify-content: center;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-}
-.navbar .navbar__aContainer {
-  background-color: #05A8AA;
+  text-align: center;
 }
 .navbar .navbar__aContainer .navbar__a {
   text-decoration: none;
   font-family: "Open Sans", sans-serif;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
   margin: 0px 20px;
-  color: #C65B7C;
-  -webkit-text-stroke: 0.7px #BC412B;
-  background-color: #05A8AA;
-}
-.navbar .navbar__aContainer .navbar__a:hover {
-  color: #BC412B;
-  -webkit-text-stroke: 0.7px black;
 }
 @media only screen and (max-width: 590px) {
   .navbar .navbar__aContainer .navbar__a {
     font-size: 15px;
   }
 }
-.navbar .switch {
-  width: 50px;
-  border-radius: 10px;
+.navbar .navbar__darkMood {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
 }
-.navbar .switch .span {
-  width: 50px;
+@media only screen and (max-width: 320px) {
+  .navbar .navbar__darkMood {
+    display: none;
+  }
 }
 
 .formContainer {
@@ -274,13 +358,7 @@
 .formContainer .form .form__select {
   margin: 10px;
   padding: 5px;
-  background-color: #C65B7C;
-  border-style: none;
   border: 1px solid #05A8AA;
-  color: white;
-}
-.formContainer .form .form__select option {
-  background-color: #C65B7C;
 }
 .formContainer .form .form__select:hover {
   border: 1px solid #BC412B;
@@ -326,15 +404,12 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background-color: #C65B7C;
   width: 100%;
   border-radius: 20px;
   border: 1px solid #05A8AA;
   padding: 20px;
 }
 .form-createJob form .form__p, .form-createJob form input, .form-createJob form input input, .form-createJob form .form__p input, .form-createJob form input input, .form-createJob form input input input {
-  background-color: #C65B7C;
-  color: black;
   margin: 2px;
   text-align: center;
   border-radius: 7px;
@@ -348,9 +423,6 @@
   background-color: white;
   color: black;
   padding: 4px;
-}
-.form-createJob form .button-container-createJob {
-  background-color: #C65B7C;
 }
 .form-createJob form input {
   border-radius: 7px;
@@ -370,7 +442,6 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background-color: #BC412B;
   width: 50%;
   border-radius: 20px;
   border: 1px solid #05A8AA;
@@ -379,7 +450,6 @@
   border: 1px solid #05A8AA;
 }
 .container-formEdit .form--editJob p {
-  background-color: #BC412B;
   color: white;
   padding: 5px;
   margin: 5px;
@@ -389,9 +459,6 @@
   padding: 5px;
   border-radius: 9px;
   color: white;
-}
-.container-formEdit .form--editJob .form-edit-BtnContainer {
-  background-color: #BC412B;
 }
 @media only screen and (max-width: 990px) {
   .container-formEdit .form--editJob {
@@ -438,7 +505,6 @@
   align-items: center;
   width: 25%;
   height: 250px;
-  background-color: #D7B49E;
   margin: 25px;
   border-radius: 15px;
   border: 1px solid #C65B7C;
@@ -451,30 +517,18 @@
   text-align: center;
   width: 80%;
   height: 70%;
-  background-color: #D7B49E;
 }
 .main .main__cardsContainer .card .card-body .card-title {
-  background-color: #D7B49E;
-  color: #BC412B;
   font-size: 19px;
 }
 .main .main__cardsContainer .card .card-body .card-description, .main .main__cardsContainer .card .detailCard .card-body .card-location, .detailCard .main .main__cardsContainer .card .card-body .card-location, .main .main__cardsContainer .card .detailCard .card-body .card-seniority, .detailCard .main .main__cardsContainer .card .card-body .card-seniority, .main .main__cardsContainer .card .detailCard .card-body .card-category, .detailCard .main .main__cardsContainer .card .card-body .card-category {
-  background-color: #D7B49E;
   overflow: hidden;
 }
 .main .main__cardsContainer .card .card-body .card-category {
-  background-color: #D7B49E;
   font-size: 12px;
   border-radius: 2px;
 }
-.main .main__cardsContainer .card .card-body .card-location {
-  background-color: #D7B49E;
-}
-.main .main__cardsContainer .card .card-body .card-location b {
-  background-color: #D7B49E;
-}
 .main .main__cardsContainer .card .card-body .card-seniority {
-  background-color: #D7B49E;
   font-size: 12px;
   border-radius: 2px;
 }
@@ -482,14 +536,11 @@
   display: flex;
 }
 .main .main__cardsContainer .card .card-body .card-cat-sen .span {
-  background-color: #C65B7C;
   padding: 3px;
   margin: 1px;
-  color: white;
 }
 .main .main__cardsContainer .card .btnSeeDet {
   padding: 5px;
-  background-color: #05A8AA;
   border: 1px solid #05A8AA;
   border-radius: 5px;
   color: white;
@@ -532,17 +583,14 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  background-color: #C65B7C;
   width: 100vw;
   height: 2.8em;
-  color: #05A8AA;
   font-weight: bold;
   font-size: 17px;
   -webkit-text-stroke: 0.8px black;
 }
 .footer img {
   height: 1.5rem;
-  background-color: #C65B7C;
   margin: 5px;
 }
 
@@ -563,7 +611,6 @@
 }
 
 .main__prevButton:hover, .backToInto:hover, .remove:hover, .main__nextButton:hover, .deleteJobs:hover, .editJobs:hover {
-  background-color: #C65B7C;
   cursor: pointer;
 }
 
@@ -605,7 +652,6 @@
 
 .form__btn:hover, .form__btnCreateJob:hover {
   cursor: pointer;
-  background-color: #05A8AA;
   color: white;
   border: 2px solid #05A8AA;
 }
@@ -616,6 +662,12 @@
 
 .form__btnCreateJob:hover {
   background-color: black;
+}
+
+.btn-toggle {
+  border-radius: 50px;
+  cursor: pointer;
+  background-color: transparent;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -10,7 +10,6 @@
             @include center($direction:column, $alingment:center, $justify:center);
             width: 25%;
             height: 250px;
-            background-color: $salmon;
             margin: 25px;
             border-radius: 15px;
             border: 1px solid $pink;
@@ -20,34 +19,21 @@
                 text-align: center;
                 width: 80%;
                 height: 70%;
-                background-color: $salmon;
 
                 .card-title{
-                    background-color: $salmon;
-                    color: $bannerColor;
                     font-size: 19px;
                 }
 
-                .card-description{
-                    background-color: $salmon;
+                .card-description{            
                     overflow: hidden;
                 }
 
                 .card-category{
-                    background-color: $salmon;
                     font-size: 12px;
                     border-radius: 2px;
                 }
 
-                .card-location{
-                    background-color: $salmon;
-                        b{
-                            background-color: $salmon;
-                        }
-                }
-
                 .card-seniority{
-                    background-color: $salmon;
                     font-size: 12px;
                     border-radius: 2px;
                 }
@@ -57,17 +43,14 @@
 
                     
                 .span{
-                    background-color: $pink;
                     padding: 3px;
                     margin: 1px;
-                    color:$letterFont;
                 }
             }
         }
         
             .btnSeeDet{
                 padding: 5px;
-                background-color: $navbarBackground;
                 border: 1px solid $navbarBackground;
                 border-radius: 5px;
                 color:$letterFont;

@@ -268,6 +268,8 @@ queryId("form-submit").addEventListener("click",(e)=>{
 queryId("form__search--Btn").addEventListener("click", (e) => {
     e.preventDefault();
     handleSpinner();
+    queryId("form-createJob").classList.add('hidden');
+    queryId("formCreate").classList.add('hidden');
     setTimeout(()=>{
         hiddeSpinner();
         searchfilter();
@@ -279,6 +281,8 @@ queryId("form__clean--Btn").addEventListener("click",()=>{
     queryId("form__select--seniority").value = "Chosse a seniority";
     queryId("form__select--category").value ="Chosse a category";
     handleSpinner();
+    queryId("form-createJob").classList.add('hidden');
+    queryId("formCreate").classList.add('hidden');
     setTimeout(()=>{
         hiddeSpinner();
         getData(page);
@@ -302,6 +306,7 @@ queryId("buttonPrev").addEventListener('click',()=>{
 //navbar buttons
 queryId("navbar--createJob").addEventListener('click',()=>{
     handleSpinner()
+    queryId("formCreate").classList.add('hidden');
     setTimeout(()=>{
     queryId("spinner").classList.add('hidden')
     queryId("buttonContainer-next-prev").classList.add('hidden')
@@ -312,9 +317,27 @@ queryId("navbar--createJob").addEventListener('click',()=>{
 const btnCareer = queryId("navbar--careers").addEventListener('click',()=>{
     cleanTable();
     handleSpinner();
+    queryId("form-createJob").classList.add('hidden');
+    queryId("formCreate").classList.add('hidden');
     setTimeout(()=>{
         getData(page);
         hiddeSpinner();
     },1000)
 })
 
+const btn = document.querySelector(".btn-toggle");
+
+const currentTheme = localStorage.getItem("theme");
+if (currentTheme == "dark") {
+  document.body.classList.add("dark-theme");
+}
+
+btn.addEventListener("click", function () {
+  document.body.classList.toggle("dark-theme");
+
+  let theme = "light";
+  if (document.body.classList.contains("dark-theme")) {
+    theme = "dark";
+  }
+  localStorage.setItem("theme", theme);
+});

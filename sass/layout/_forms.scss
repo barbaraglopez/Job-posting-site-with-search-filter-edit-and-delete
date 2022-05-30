@@ -8,14 +8,7 @@
         .form__select{
             margin: 10px;
             padding: 5px;
-            background-color: $pink;
-            border-style: $linkSinLinea;
             border: 1px solid $navbarBackground;
-            color: $letterFont;
-
-            option{
-                background-color: $pink;
-            }
         }
 
         .form__select:hover{
@@ -57,15 +50,12 @@
     @include center($direction:column, $alingment:center, $justify:center);
     form{
         @include center($direction:column, $alingment:center, $justify:center);
-        background-color: $pink;
         width: 100%;
         border-radius: 20px;
         border: 1px solid $navbarBackground;
         padding: 20px;
         
-        .form__p{
-            background-color: $pink;
-            color: black;
+        .form__p{                      
             margin: 2px;
             text-align: center;
             border-radius: 7px;
@@ -78,10 +68,6 @@
                 color: black;
                 padding: 4px;
             }
-        }
-
-        .button-container-createJob{
-            background-color:$pink;
         }
 
         input{
@@ -98,7 +84,6 @@
     .form--editJob{
         @include center($direction:column, $alingment:center, $justify:center);
         text-align: center;
-        background-color: $bannerColor;
         width: 50%;
         border-radius: 20px;
         border: 1px solid $navbarBackground;
@@ -107,7 +92,6 @@
         border: 1px solid $navbarBackground;
 
         p{
-            background-color:$bannerColor;
             color: white;
             padding: 5px; 
             margin: 5px;
@@ -118,10 +102,6 @@
                 border-radius: 9px;    
                 color: white;     
             }
-        }
-
-        .form-edit-BtnContainer{
-            background-color:$bannerColor;
         }
     }
 
