@@ -2,12 +2,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Koulen&family=Montserrat:wght@400;500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@200&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  font-family: "Open Sans", sans-serif;
-}
-
 body {
   --text-color: #222;
   --bkg-color:#B8D5B8;
@@ -36,6 +30,12 @@ body.dark-theme {
   --select-color:#C39BD3;
   --title:#CF99E3;
   --font-letter:black;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
 }
 
 body {
