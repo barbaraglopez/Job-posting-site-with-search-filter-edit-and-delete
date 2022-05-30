@@ -1,6 +1,6 @@
 .footer{
     @include center($direction:row, $alingment:center, $justify:center);
-    position: absolute;
+    position:absolute;
     bottom: 0;
     left: 0;
     width: 100vw;

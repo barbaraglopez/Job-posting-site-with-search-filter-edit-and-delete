@@ -38,8 +38,16 @@ body.dark-theme {
   font-family: "Open Sans", sans-serif;
 }
 
+html {
+  min-height: 100%;
+  bottom: 0rem;
+  position: relative;
+  margin-top: 0em;
+}
+
 body {
   background: var(--bkg-color);
+  margin-bottom: 4rem;
 }
 
 .header {

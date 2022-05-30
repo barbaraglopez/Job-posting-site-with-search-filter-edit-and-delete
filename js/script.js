@@ -322,6 +322,7 @@ const btnCareer = queryId("navbar--careers").addEventListener('click',()=>{
     setTimeout(()=>{
         getData(page);
         hiddeSpinner();
+        queryId("buttonContainer-next-prev").classList.remove('hidden')
     },1000)
 })
 
