@@ -1,6 +1,6 @@
 # Proyecto con APIS tercera entrega para Ada
 ***
-Les presento mi tercer proyecto realizado para Ada. El mísmo consiste en una plataforma de publicaciones de "puestos de empleos it". Cada empleo es información cargada en una base de datos de mokApi realizada personalmente para este tp. El usuario puede acceder a cada puesto, filtrar su busqueda con los selects del navbar, editar cada card con informacion que se envia a la base de datos o eliminarla y crear una nueva publicación incluso. El usuario puede elegir si ver el diseño en modo claro o modo oscuro[Podés verlo accediendo a este link!](https://github.com/barbaraglopez/Jobs_With_API.git)
+Les presento mi tercer proyecto realizado para Ada. El mísmo consiste en una plataforma de publicaciones de "puestos de empleos it". Cada empleo es información cargada en una base de datos de mokApi realizada personalmente para este tp. El usuario puede acceder a cada puesto, filtrar su busqueda con los selects del navbar, editar cada card con informacion que se envia a la base de datos o eliminarla y crear una nueva publicación incluso. El usuario puede elegir si ver el diseño en modo claro o modo oscuro[Podés verlo accediendo a este link!](https://barbaraglopez.github.io/Jobs_With_API/)
 ***
 Está diseñado en HTML, CSS, Javascript y Sass.
 ***
